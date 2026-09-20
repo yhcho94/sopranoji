@@ -30,6 +30,14 @@ export default function ContactPage() {
         >
           YouTube
         </a>
+        <a
+          href="https://naver.me/5LQZ7evZ"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full max-w-xs rounded-full border border-accent px-7 py-4 text-sm tracking-wide text-accent transition-colors hover:bg-accent-soft"
+        >
+          네이버 인물정보
+        </a>
       </div>
 
       <p className="mt-12 rounded-xl border border-dashed border-line p-5 text-xs leading-6 text-muted/80">

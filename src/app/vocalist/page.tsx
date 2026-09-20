@@ -7,10 +7,14 @@ export const metadata: Metadata = {
   title: "성악가 | 소프라노 지정윤",
 };
 
-const GALLERY = Array.from(
-  { length: 6 },
-  (_, i) => `/images/vocalist-gallery/${i + 1}.jpg`,
-);
+const GALLERY = [
+  { src: "/images/vocalist-gallery/1.jpg", width: 1280, height: 1600 },
+  { src: "/images/vocalist-gallery/2.jpg", width: 1536, height: 2048 },
+  { src: "/images/vocalist-gallery/3.jpg", width: 1706, height: 1280 },
+  { src: "/images/vocalist-gallery/4.jpg", width: 1440, height: 1920 },
+  { src: "/images/vocalist-gallery/5.jpg", width: 1440, height: 1920 },
+  { src: "/images/vocalist-gallery/6.jpg", width: 1080, height: 1080 },
+];
 
 export default function VocalistPage() {
   return (

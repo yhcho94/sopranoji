@@ -145,28 +145,47 @@ export default function ContactPage() {
               <path d="M9.2 13.5H14" strokeLinecap="round" />
             </svg>
           </ContactIcon>
+
+          <ContactIcon href={NAVER_URL} label="인물정보">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              className="h-6 w-6"
+              aria-hidden="true"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <path
+                d="M9 8v8l6-8v8"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </ContactIcon>
+
+          <ContactIcon href={NAVER_BLOG_URL} label="블로그">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              className="h-6 w-6"
+              aria-hidden="true"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <path
+                d="M9 8v8l6-8v8"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </ContactIcon>
         </div>
 
         <p className="mt-10 text-sm text-muted">{EMAIL}</p>
-
-        <div className="mt-6 flex flex-col items-center gap-2">
-          <a
-            href={NAVER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm tracking-wide text-accent hover:underline"
-          >
-            네이버 인물정보 보기 →
-          </a>
-          <a
-            href={NAVER_BLOG_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm tracking-wide text-accent hover:underline"
-          >
-            네이버 블로그 보기 →
-          </a>
-        </div>
       </div>
     </div>
   );

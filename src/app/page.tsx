@@ -1,10 +1,75 @@
 import Image from "next/image";
 import Link from "next/link";
-import { performances } from "@/data/performances";
+
+const MENU = [
+  {
+    href: "/about",
+    label: "소개",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
+        <circle cx="12" cy="8" r="3.5" />
+        <path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    href: "/vocalist",
+    label: "성악가",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
+        <rect x="9" y="3" width="6" height="11" rx="3" />
+        <path d="M6 11a6 6 0 0012 0" strokeLinecap="round" />
+        <path d="M12 17v4" strokeLinecap="round" />
+        <path d="M9 21h6" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    href: "/conductor",
+    label: "지휘자",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
+        <path d="M6 18L17 7" strokeLinecap="round" />
+        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    href: "/soborche",
+    label: "튀김소보체",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
+        <circle cx="9" cy="8" r="3" />
+        <circle cx="16" cy="9" r="2.5" />
+        <path d="M3.5 20c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5" strokeLinecap="round" />
+        <path d="M13.5 20c.3-2.2 1.8-4 3.8-4.6" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    href: "/press",
+    label: "보도자료",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
+        <rect x="3" y="5" width="14" height="14" rx="1" />
+        <path d="M7 9h6M7 12h6M7 15h4" strokeLinecap="round" />
+        <path d="M17 8h2a2 2 0 012 2v7a2 2 0 01-2 2H8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    href: "/contact",
+    label: "컨택트",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="M4 7l8 6 8-6" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+];
 
 export default function Home() {
-  const latestPerformances = performances.slice(0, 2);
-
   return (
     <div>
       {/* Hero */}
@@ -17,10 +82,10 @@ export default function Home() {
             priority
             className="object-cover object-top"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-5xl px-6 py-16 text-center animate-fade-up">
+        <div className="relative mx-auto max-w-3xl px-6 py-16 text-center animate-fade-up">
           <p className="mb-5 text-xs tracking-[0.5em] text-accent">
             SOPRANO · CONDUCTOR
           </p>
@@ -30,84 +95,33 @@ export default function Home() {
           <p className="mt-4 font-display text-base tracking-[0.35em] text-muted sm:text-lg">
             JI JOUNGYUN
           </p>
-          <p className="mx-auto mt-8 max-w-xl text-sm leading-7 text-muted sm:text-base">
-            소프라노이자 세종리틀싱어즈 지휘자 · 단장.
+          <p className="mx-auto mt-8 max-w-xl text-sm leading-8 text-muted sm:text-base">
+            무대 위에서는 노래로 위로를 전하고, 무대 아래에서는 아이들과
+            함께 노래하며 자라나는 목소리를 지휘합니다.
             <br />
-            무대 위의 노래와 아이들과 함께하는 무대 아래의 노래, 그 사이를 잇습니다.
+            성악가 지정윤은 클래식과 대중의 경계를 넘나들며, 노래로 사람과
+            사람을 잇는 음악가입니다.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+        </div>
+      </section>
+
+      {/* Menu grid */}
+      <section className="mx-auto max-w-4xl px-6 py-20">
+        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
+          {MENU.map((item) => (
             <Link
-              href="/vocalist"
-              className="rounded-full border border-accent px-7 py-3 text-sm tracking-wide text-accent transition-colors hover:bg-accent-soft"
+              key={item.href}
+              href={item.href}
+              className="group flex flex-col items-center gap-3 rounded-2xl border border-line bg-background-elevated px-4 py-8 text-center transition-colors hover:border-accent/50"
             >
-              공연 보기
+              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent/40 text-accent transition-colors group-hover:bg-accent-soft">
+                {item.icon}
+              </span>
+              <span className="text-sm tracking-wide text-foreground">
+                {item.label}
+              </span>
             </Link>
-            <a
-              href="https://www.instagram.com/jjy1340"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-foreground px-7 py-3 text-sm tracking-wide text-background transition-opacity hover:opacity-85"
-            >
-              Instagram
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* About preview */}
-      <section className="mx-auto max-w-4xl px-6 py-24 text-center">
-        <p className="text-xs tracking-[0.4em] text-accent">ABOUT</p>
-        <h2 className="mt-4 font-display text-2xl sm:text-3xl">
-          노래로 위로하고, 지휘로 함께 만듭니다
-        </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-sm leading-8 text-muted sm:text-base">
-          소프라노 지정윤은 이탈리아 유학을 통해 성악을 배우고, 무대와 병원,
-          지역사회를 넘나들며 노래를 나눠온 음악가입니다. 현재는 세종리틀싱어즈의
-          지휘자이자 단장으로 어린이들과 함께 무대를 만들어가고 있습니다.
-        </p>
-        <Link
-          href="/about"
-          className="mt-8 inline-block text-sm tracking-wide text-accent hover:underline"
-        >
-          자세히 보기 →
-        </Link>
-      </section>
-
-      <div className="mx-auto max-w-4xl px-6">
-        <div className="section-divider" />
-      </div>
-
-      {/* Performances preview */}
-      <section className="mx-auto max-w-5xl px-6 py-24">
-        <div className="mb-12 text-center">
-          <p className="text-xs tracking-[0.4em] text-accent">PERFORMANCES</p>
-          <h2 className="mt-4 font-display text-2xl sm:text-3xl">공연</h2>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2">
-          {latestPerformances.map((item) => (
-            <div
-              key={item.id}
-              className="rounded-2xl border border-line bg-background-elevated p-6"
-            >
-              <div className="flex items-center justify-between text-xs text-muted">
-                <span>{item.venue}</span>
-                <span>{item.date}</span>
-              </div>
-              <h3 className="mt-4 font-display text-lg leading-snug text-foreground">
-                {item.title}
-              </h3>
-            </div>
           ))}
-        </div>
-
-        <div className="mt-10 text-center">
-          <Link
-            href="/vocalist"
-            className="text-sm tracking-wide text-accent hover:underline"
-          >
-            공연 전체 보기 →
-          </Link>
         </div>
       </section>
     </div>

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "성악가 | 소프라노 지정윤",
 };
 
-const PAST_YEAR_CUTOFF = 2022;
+const PAST_YEAR_CUTOFF = 2023;
 const recentPerformances = performances.filter(
   (item) => Number(item.date.slice(0, 4)) > PAST_YEAR_CUTOFF,
 );

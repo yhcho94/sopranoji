@@ -37,7 +37,7 @@ export default function VocalistPage() {
 
       <div className="mx-auto max-w-3xl px-6 py-16">
         <div className="space-y-6 text-sm leading-8 text-muted sm:text-base">
-          <p className="text-base text-foreground sm:text-lg">
+          <p className="text-base font-bold text-foreground sm:text-lg">
             이탈리아에서 다져온 성악을 바탕으로, 무대마다 진심을 담아
             노래하는 성악가입니다.
           </p>

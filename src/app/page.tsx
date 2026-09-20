@@ -1,24 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
-import { pressItems } from "@/data/press";
+import { performances } from "@/data/performances";
 
 export default function Home() {
-  const latestPress = pressItems.slice(0, 2);
+  const latestPerformances = performances.slice(0, 2);
 
   return (
     <div>
       {/* Hero */}
-      <section className="relative flex min-h-[92vh] items-center overflow-hidden border-b border-line">
-        <Image
-          src="/images/profile-hero.jpg"
-          alt="소프라노 지정윤"
-          fill
-          priority
-          className="object-cover object-center opacity-90"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-5xl px-6 py-24 text-center animate-fade-up">
+      <section className="relative overflow-hidden border-b border-line">
+        <div className="relative h-[58vh] min-h-[380px] w-full sm:h-[68vh]">
+          <Image
+            src="/images/profile-hero.jpg"
+            alt="소프라노 지정윤"
+            fill
+            priority
+            className="object-cover object-top"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
+        </div>
+
+        <div className="relative mx-auto max-w-5xl px-6 py-16 text-center animate-fade-up">
           <p className="mb-5 text-xs tracking-[0.5em] text-accent">
             SOPRANO · CONDUCTOR
           </p>
@@ -26,7 +28,7 @@ export default function Home() {
             <span className="text-gradient-gold">지정윤</span>
           </h1>
           <p className="mt-4 font-display text-base tracking-[0.35em] text-muted sm:text-lg">
-            JI JEONGYUN
+            JI JOUNGYUN
           </p>
           <p className="mx-auto mt-8 max-w-xl text-sm leading-7 text-muted sm:text-base">
             소프라노이자 세종리틀싱어즈 지휘자 · 단장.
@@ -35,10 +37,10 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/press"
+              href="/vocalist"
               className="rounded-full border border-accent px-7 py-3 text-sm tracking-wide text-accent transition-colors hover:bg-accent-soft"
             >
-              보도자료 보기
+              공연 보기
             </Link>
             <a
               href="https://www.instagram.com/jjy1340"
@@ -75,42 +77,36 @@ export default function Home() {
         <div className="section-divider" />
       </div>
 
-      {/* Press preview */}
+      {/* Performances preview */}
       <section className="mx-auto max-w-5xl px-6 py-24">
         <div className="mb-12 text-center">
-          <p className="text-xs tracking-[0.4em] text-accent">PRESS</p>
-          <h2 className="mt-4 font-display text-2xl sm:text-3xl">보도자료</h2>
+          <p className="text-xs tracking-[0.4em] text-accent">PERFORMANCES</p>
+          <h2 className="mt-4 font-display text-2xl sm:text-3xl">공연</h2>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
-          {latestPress.map((item) => (
-            <a
+          {latestPerformances.map((item) => (
+            <div
               key={item.id}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-2xl border border-line bg-background-elevated p-6 transition-colors hover:border-accent/50"
+              className="rounded-2xl border border-line bg-background-elevated p-6"
             >
               <div className="flex items-center justify-between text-xs text-muted">
-                <span>{item.outlet}</span>
+                <span>{item.venue}</span>
                 <span>{item.date}</span>
               </div>
-              <h3 className="mt-4 font-display text-lg leading-snug text-foreground group-hover:text-accent">
+              <h3 className="mt-4 font-display text-lg leading-snug text-foreground">
                 {item.title}
               </h3>
-              <p className="mt-3 line-clamp-3 text-sm leading-6 text-muted">
-                {item.excerpt}
-              </p>
-            </a>
+            </div>
           ))}
         </div>
 
         <div className="mt-10 text-center">
           <Link
-            href="/press"
+            href="/vocalist"
             className="text-sm tracking-wide text-accent hover:underline"
           >
-            보도자료 전체 보기 →
+            공연 전체 보기 →
           </Link>
         </div>
       </section>

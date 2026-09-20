@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { href: "/about", label: "소개" },
   { href: "/performances", label: "공연" },
   { href: "/press", label: "보도자료" },
+  { href: "/soborche", label: "튀김소보체" },
   { href: "/contact", label: "컨택트" },
 ];
 

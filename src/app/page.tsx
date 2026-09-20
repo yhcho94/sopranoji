@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import LikeButton from "@/components/LikeButton";
+import ReactionButton from "@/components/ReactionButton";
 
 const MENU = [
   {
@@ -103,8 +103,19 @@ export default function Home() {
             성악가 지정윤은 클래식과 대중의 경계를 넘나들며, 노래로 사람과
             사람을 잇는 음악가입니다.
           </p>
-          <div className="mt-8 flex justify-center">
-            <LikeButton />
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <ReactionButton
+              storageKey="home-likes"
+              emoji="❤️"
+              label="좋아요"
+              colorClass="border-accent/40 text-accent hover:bg-accent-soft"
+            />
+            <ReactionButton
+              storageKey="home-fighting"
+              emoji="💪"
+              label="화이팅"
+              colorClass="border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10"
+            />
           </div>
         </div>
       </section>

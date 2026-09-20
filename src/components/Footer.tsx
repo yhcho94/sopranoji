@@ -1,4 +1,5 @@
 const INSTAGRAM_URL = "https://www.instagram.com/jjy1340";
+const YOUTUBE_URL = "https://youtube.com/channel/UCAKsSWLfvD0hgk-aLIKF2SQ";
 
 export default function Footer() {
   return (
@@ -7,14 +8,25 @@ export default function Footer() {
         <p className="font-display text-sm tracking-[0.3em] text-muted">
           SOPRANO JI JEONGYUN
         </p>
-        <a
-          href={INSTAGRAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs tracking-wide text-accent hover:underline"
-        >
-          @jjy1340
-        </a>
+        <div className="flex items-center gap-4 text-xs tracking-wide">
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:underline"
+          >
+            Instagram
+          </a>
+          <span className="text-muted/40">·</span>
+          <a
+            href={YOUTUBE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:underline"
+          >
+            YouTube
+          </a>
+        </div>
         <p className="text-xs text-muted/70">
           © {new Date().getFullYear()} Ji Jeongyun. All rights reserved.
         </p>

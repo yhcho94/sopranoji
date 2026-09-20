@@ -22,6 +22,14 @@ export default function ContactPage() {
         >
           Instagram @jjy1340
         </a>
+        <a
+          href="https://youtube.com/channel/UCAKsSWLfvD0hgk-aLIKF2SQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full max-w-xs rounded-full border border-accent px-7 py-4 text-sm tracking-wide text-accent transition-colors hover:bg-accent-soft"
+        >
+          YouTube
+        </a>
       </div>
 
       <p className="mt-12 rounded-xl border border-dashed border-line p-5 text-xs leading-6 text-muted/80">

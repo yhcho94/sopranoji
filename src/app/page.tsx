@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { pressItems } from "@/data/press";
+import { performances } from "@/data/performances";
 
 export default function Home() {
-  const latestPress = pressItems.slice(0, 2);
+  const latestPerformances = performances.slice(0, 2);
 
   return (
     <div>
@@ -35,10 +35,10 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/press"
+              href="/performances"
               className="rounded-full border border-accent px-7 py-3 text-sm tracking-wide text-accent transition-colors hover:bg-accent-soft"
             >
-              보도자료 보기
+              공연 보기
             </Link>
             <a
               href="https://www.instagram.com/jjy1340"
@@ -75,42 +75,36 @@ export default function Home() {
         <div className="section-divider" />
       </div>
 
-      {/* Press preview */}
+      {/* Performances preview */}
       <section className="mx-auto max-w-5xl px-6 py-24">
         <div className="mb-12 text-center">
-          <p className="text-xs tracking-[0.4em] text-accent">PRESS</p>
-          <h2 className="mt-4 font-display text-2xl sm:text-3xl">보도자료</h2>
+          <p className="text-xs tracking-[0.4em] text-accent">PERFORMANCES</p>
+          <h2 className="mt-4 font-display text-2xl sm:text-3xl">공연</h2>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
-          {latestPress.map((item) => (
-            <a
+          {latestPerformances.map((item) => (
+            <div
               key={item.id}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-2xl border border-line bg-background-elevated p-6 transition-colors hover:border-accent/50"
+              className="rounded-2xl border border-line bg-background-elevated p-6"
             >
               <div className="flex items-center justify-between text-xs text-muted">
-                <span>{item.outlet}</span>
+                <span>{item.venue}</span>
                 <span>{item.date}</span>
               </div>
-              <h3 className="mt-4 font-display text-lg leading-snug text-foreground group-hover:text-accent">
+              <h3 className="mt-4 font-display text-lg leading-snug text-foreground">
                 {item.title}
               </h3>
-              <p className="mt-3 line-clamp-3 text-sm leading-6 text-muted">
-                {item.excerpt}
-              </p>
-            </a>
+            </div>
           ))}
         </div>
 
         <div className="mt-10 text-center">
           <Link
-            href="/press"
+            href="/performances"
             className="text-sm tracking-wide text-accent hover:underline"
           >
-            보도자료 전체 보기 →
+            공연 전체 보기 →
           </Link>
         </div>
       </section>

@@ -14,6 +14,12 @@ export default function PressPage() {
         언론에 소개된 소프라노 지정윤의 활동 소식입니다.
       </p>
 
+      {pressItems.length === 0 && (
+        <p className="mt-12 rounded-2xl border border-dashed border-line bg-background-elevated p-8 text-center text-sm leading-7 text-muted">
+          아직 등록된 보도자료가 없습니다. 곷 소식을 전해드릴게요.
+        </p>
+      )}
+
       <div className="mt-12 space-y-6">
         {pressItems.map((item) => (
           <a

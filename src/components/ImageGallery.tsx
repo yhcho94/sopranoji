@@ -9,31 +9,102 @@ export type GalleryImage = {
   height: number;
 };
 
+type Group =
+  | { type: "landscape"; img: GalleryImage; index: number }
+  | { type: "portraits"; items: { img: GalleryImage; index: number }[] };
+
+function groupForFlow(images: GalleryImage[]): Group[] {
+  const groups: Group[] = [];
+  let buffer: { img: GalleryImage; index: number }[] = [];
+
+  images.forEach((img, index) => {
+    const isLandscape = img.width / img.height > 1.15;
+    if (isLandscape) {
+      if (buffer.length) {
+        groups.push({ type: "portraits", items: buffer });
+        buffer = [];
+      }
+      groups.push({ type: "landscape", img, index });
+    } else {
+      buffer.push({ img, index });
+    }
+  });
+
+  if (buffer.length) groups.push({ type: "portraits", items: buffer });
+  return groups;
+}
+
+function Thumb({
+  img,
+  alt,
+  onClick,
+}: {
+  img: GalleryImage;
+  alt: string;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="사진 크게 보기"
+      style={{ aspectRatio: `${img.width} / ${img.height}` }}
+      className="relative w-full overflow-hidden rounded-xl border border-line transition-opacity hover:opacity-90"
+    >
+      <Image src={img.src} alt={alt} fill className="object-cover" />
+    </button>
+  );
+}
+
 export default function ImageGallery({
   images,
   alt,
+  layout = "grid",
 }: {
   images: GalleryImage[];
   alt: string;
+  layout?: "grid" | "flow";
 }) {
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-        {images.map((img, i) => (
-          <button
-            key={img.src}
-            type="button"
-            onClick={() => setSelected(i)}
-            aria-label="사진 크게 보기"
-            style={{ aspectRatio: `${img.width} / ${img.height}` }}
-            className="relative overflow-hidden rounded-xl border border-line transition-opacity hover:opacity-90"
-          >
-            <Image src={img.src} alt={alt} fill className="object-cover" />
-          </button>
-        ))}
-      </div>
+      {layout === "flow" ? (
+        <div className="space-y-3">
+          {groupForFlow(images).map((group, gi) =>
+            group.type === "landscape" ? (
+              <Thumb
+                key={group.img.src}
+                img={group.img}
+                alt={alt}
+                onClick={() => setSelected(group.index)}
+              />
+            ) : (
+              <div key={gi} className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {group.items.map(({ img, index }) => (
+                  <Thumb
+                    key={img.src}
+                    img={img}
+                    alt={alt}
+                    onClick={() => setSelected(index)}
+                  />
+                ))}
+              </div>
+            ),
+          )}
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {images.map((img, i) => (
+            <Thumb
+              key={img.src}
+              img={img}
+              alt={alt}
+              onClick={() => setSelected(i)}
+            />
+          ))}
+        </div>
+      )}
 
       {selected !== null && (
         <div

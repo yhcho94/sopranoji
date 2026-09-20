@@ -3,7 +3,7 @@ const YOUTUBE_URL = "https://youtube.com/channel/UCAKsSWLfvD0hgk-aLIKF2SQ";
 
 export default function SocialFloat() {
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2">
+    <div className="fixed bottom-16 right-5 z-50 flex flex-col gap-2">
       <a
         href={INSTAGRAM_URL}
         target="_blank"

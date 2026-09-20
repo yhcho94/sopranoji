@@ -1,35 +1,13 @@
-const INSTAGRAM_URL = "https://www.instagram.com/jjy1340";
-const YOUTUBE_URL = "https://youtube.com/channel/UCAKsSWLfvD0hgk-aLIKF2SQ";
+import VisitorBadge from "./VisitorBadge";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line px-6 py-10">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 text-center">
-        <p className="font-display text-sm tracking-[0.3em] text-muted">
-          SOPRANO JI JOUNGYUN
-        </p>
-        <div className="flex items-center gap-4 text-xs tracking-wide">
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline"
-          >
-            Instagram
-          </a>
-          <span className="text-muted/40">·</span>
-          <a
-            href={YOUTUBE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline"
-          >
-            YouTube
-          </a>
-        </div>
-        <p className="text-xs text-muted/70">
+    <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-background/90 px-6 py-2 backdrop-blur-md">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-4 gap-y-1 text-center sm:justify-between">
+        <span className="text-[11px] text-muted/80">
           © {new Date().getFullYear()} Ji Joungyun. All rights reserved.
-        </p>
+        </span>
+        <VisitorBadge />
       </div>
     </footer>
   );

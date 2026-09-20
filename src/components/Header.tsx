@@ -21,10 +21,10 @@ export default function Header() {
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="font-display text-lg tracking-widest text-foreground"
+          className="font-display text-lg font-bold tracking-widest text-foreground"
           onClick={() => setOpen(false)}
         >
-          SOPRANO <span className="text-gradient-gold">JI JEONGYUN</span>
+          SOPRANO <span className="text-gradient-gold">JI JOUNGYUN</span>
         </Link>
 
         <nav className="hidden gap-8 md:flex">

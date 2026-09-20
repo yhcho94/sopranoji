@@ -26,7 +26,7 @@ export default function Home() {
             <span className="text-gradient-gold">지정윤</span>
           </h1>
           <p className="mt-4 font-display text-base tracking-[0.35em] text-muted sm:text-lg">
-            JI JEONGYUN
+            JI JOUNGYUN
           </p>
           <p className="mx-auto mt-8 max-w-xl text-sm leading-7 text-muted sm:text-base">
             소프라노이자 세종리틀싱어즈 지휘자 · 단장.

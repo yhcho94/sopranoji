@@ -5,19 +5,26 @@ export const metadata: Metadata = {
   title: "소개 | 소프라노 지정윤",
 };
 
-const FACTS = [
+const FACTS: { label: string; items: string[] }[] = [
   {
     label: "현재",
-    value: "세종리틀싱어즈 단장 (2023.10~) · 세종드림예술기획 대표 · 세종 사계절하모니합창단 지휘자",
+    items: [
+      "세종리틀싱어즈 단장 (2023.10~)",
+      "세종드림예술기획 대표",
+      "세종 사계절하모니합창단 지휘자",
+    ],
   },
   {
     label: "학력",
-    value:
-      "숙명여자대학교 대학원 성악학과 석사 · 이탈리아 페스카레제 시립음악원(Accademia Musicale Pescarese) 최고연주자과정 및 Canto Spagnole 수료",
+    items: [
+      "숙명여자대학교 대학원 성악학과 석사",
+      "이탈리아 페스카레제 시립음악원(Accademia Musicale Pescarese) 최고연주자과정 수료",
+      "이탈리아 페스카레제 시립음악원 'Canto Spagnole' 수료",
+    ],
   },
   {
     label: "수상",
-    value: "2023년 World Choir Game Silver Diploma · 2023년 세종 음악인상",
+    items: ["2023년 World Choir Game Silver Diploma", "2023년 세종 음악인상"],
   },
 ];
 
@@ -62,14 +69,21 @@ export default function AboutPage() {
         {FACTS.map((fact) => (
           <div
             key={fact.label}
-            className="grid grid-cols-1 gap-1 bg-background-elevated p-6 sm:grid-cols-[120px_1fr] sm:items-baseline sm:gap-6"
+            className="grid grid-cols-1 gap-2 bg-background-elevated p-6 sm:grid-cols-[120px_1fr] sm:gap-6"
           >
             <span className="text-xs tracking-widest text-accent">
               {fact.label}
             </span>
-            <span className="text-sm text-foreground sm:text-base">
-              {fact.value}
-            </span>
+            <ul className="space-y-1.5">
+              {fact.items.map((item) => (
+                <li
+                  key={item}
+                  className="text-sm text-foreground sm:text-base"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>

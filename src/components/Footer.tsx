@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="border-t border-line px-6 py-10">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 text-center">
         <p className="font-display text-sm tracking-[0.3em] text-muted">
-          SOPRANO JI JEONGYUN
+          SOPRANO JI JOUNGYUN
         </p>
         <div className="flex items-center gap-4 text-xs tracking-wide">
           <a
@@ -28,7 +28,7 @@ export default function Footer() {
           </a>
         </div>
         <p className="text-xs text-muted/70">
-          © {new Date().getFullYear()} Ji Jeongyun. All rights reserved.
+          © {new Date().getFullYear()} Ji Joungyun. All rights reserved.
         </p>
       </div>
     </footer>

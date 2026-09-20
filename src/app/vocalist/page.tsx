@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import ImageGallery from "@/components/ImageGallery";
 import { performances } from "@/data/performances";
 
 export const metadata: Metadata = {
   title: "성악가 | 소프라노 지정윤",
 };
+
+const GALLERY = Array.from(
+  { length: 6 },
+  (_, i) => `/images/vocalist-gallery/${i + 1}.jpg`,
+);
 
 export default function VocalistPage() {
   return (
@@ -29,6 +35,10 @@ export default function VocalistPage() {
             연주 등 국내외 무대에서 활동해 왔습니다. 클래식 쇼콰이어
             &lsquo;튀김소보체&rsquo;의 멤버로도 활동하고 있습니다.
           </p>
+        </div>
+
+        <div className="mt-10">
+          <ImageGallery images={GALLERY} alt="소프라노 지정윤 공연 사진" />
         </div>
 
         <div className="mt-14">

@@ -80,15 +80,24 @@ export default function ImageGallery({
                 onClick={() => setSelected(group.index)}
               />
             ) : (
-              <div key={gi} className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                {group.items.map(({ img, index }) => (
-                  <Thumb
-                    key={img.src}
-                    img={img}
-                    alt={alt}
-                    onClick={() => setSelected(index)}
-                  />
-                ))}
+              <div key={gi} className="grid grid-cols-2 gap-3">
+                {group.items.map(({ img, index }, itemIndex) => {
+                  const isLastOdd =
+                    group.items.length % 2 === 1 &&
+                    itemIndex === group.items.length - 1;
+                  return (
+                    <div
+                      key={img.src}
+                      className={isLastOdd ? "col-span-2" : undefined}
+                    >
+                      <Thumb
+                        img={img}
+                        alt={alt}
+                        onClick={() => setSelected(index)}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             ),
           )}

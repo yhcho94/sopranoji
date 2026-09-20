@@ -21,7 +21,7 @@ export default function PageHero({
         className="object-cover object-top"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/50 to-background/10" />
-      <div className="relative flex h-full flex-col items-center justify-end pb-8 text-center">
+      <div className="relative flex h-full flex-col items-center justify-end pb-3 text-center">
         <p className="text-xs tracking-[0.4em] text-accent">{eyebrow}</p>
         <h1 className="mt-3 font-display text-3xl sm:text-4xl">{title}</h1>
       </div>

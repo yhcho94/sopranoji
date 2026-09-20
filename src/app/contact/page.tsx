@@ -10,6 +10,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/jjy1340";
 const YOUTUBE_URL = "https://youtube.com/channel/UCAKsSWLfvD0hgk-aLIKF2SQ";
 const FACEBOOK_URL = "https://www.facebook.com/share/1AsFo2t6jG/";
 const NAVER_URL = "https://naver.me/5LQZ7evZ";
+const NAVER_BLOG_URL = "https://blog.naver.com/jjyy1340";
 
 function ContactIcon({
   href,
@@ -128,7 +129,7 @@ export default function ContactPage() {
 
         <p className="mt-10 text-sm text-muted">{EMAIL}</p>
 
-        <div className="mt-6">
+        <div className="mt-6 flex flex-col items-center gap-2">
           <a
             href={NAVER_URL}
             target="_blank"
@@ -136,6 +137,14 @@ export default function ContactPage() {
             className="text-sm tracking-wide text-accent hover:underline"
           >
             네이버 인물정보 보기 →
+          </a>
+          <a
+            href={NAVER_BLOG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm tracking-wide text-accent hover:underline"
+          >
+            네이버 블로그 보기 →
           </a>
         </div>
       </div>

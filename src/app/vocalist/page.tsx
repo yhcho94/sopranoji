@@ -10,7 +10,7 @@ export default function VocalistPage() {
   return (
     <div>
       <PageHero
-        src="/images/profile-hero.jpg"
+        src="/images/vocalist-hero.jpg"
         alt="소프라노 지정윤"
         eyebrow="VOCALIST"
         title="성악가"
@@ -32,8 +32,8 @@ export default function VocalistPage() {
         </div>
 
         <div className="mt-14">
-          <p className="text-xs tracking-[0.4em] text-accent">RECITALS</p>
-          <h2 className="mt-3 font-display text-2xl sm:text-3xl">독창회 · 공연 이력</h2>
+          <p className="text-xs tracking-[0.4em] text-accent">PERFORMANCES</p>
+          <h2 className="mt-3 font-display text-2xl sm:text-3xl">공연 이력</h2>
         </div>
 
         <div className="mt-8 space-y-6">
@@ -65,7 +65,7 @@ export default function VocalistPage() {
         </div>
 
         <p className="mt-12 rounded-xl border border-dashed border-line p-5 text-xs leading-6 text-muted/80">
-          ※ 네이버 인물정보(본인/대리인 관리) 및 공개된 자료를 바탕으로
+          ※ 네이버 인물정보(본인/대리인 관리) 및 본인 제출 자료를 바탕으로
           정리했습니다. 추가 공연 정보를 보내주시면 목록에 반영하겠습니다.
         </p>
       </div>

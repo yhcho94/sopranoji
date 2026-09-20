@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   title: "성악가 | 소프라노 지정윤",
 };
 
-const PAST_YEAR_CUTOFF = 2023;
+// 올해와 작년 공연만 펼쳐서 보여주고, 그 이전은 접어서 표시합니다.
+const PAST_YEAR_CUTOFF = new Date().getFullYear() - 2;
 const recentPerformances = performances.filter(
   (item) => Number(item.date.slice(0, 4)) > PAST_YEAR_CUTOFF,
 );

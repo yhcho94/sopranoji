@@ -38,9 +38,9 @@ export const performances: Performance[] = [
   {
     id: "2020-police-univ",
     date: "2020.06",
-    title: "경찰대학교 러지컴 인문학 특강",
+    title: "경찰대학교 뮤지컬 인문학 특강",
     venue: "경찰대학교",
-    note: "러지컴 작품을 통한 인문학적 교훈 전달 특강",
+    note: "뮤지컬 작품을 통한 인문학적 교훈 전달 특강",
   },
   {
     id: "2019-recital",

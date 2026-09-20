@@ -10,7 +10,7 @@ export default function PressPage() {
   return (
     <div>
       <PageHero
-        src="/images/profile-hero.jpg"
+        src="/images/press-hero.jpg"
         alt="소프라노 지정윤"
         eyebrow="PRESS"
         title="보도자료"
@@ -23,7 +23,7 @@ export default function PressPage() {
 
         {pressItems.length === 0 && (
           <p className="mt-12 rounded-2xl border border-dashed border-line bg-background-elevated p-8 text-center text-sm leading-7 text-muted">
-            아직 등록된 보도자료가 없습니다. 곷 소식을 전해드릴게요.
+            아직 등록된 보도자료가 없습니다. 곧 소식을 전해드릴게요.
           </p>
         )}
 

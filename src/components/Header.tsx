@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const NAV_ITEMS = [
-  { href: "/", label: "홈" },
   { href: "/about", label: "소개" },
-  { href: "/performances", label: "공연" },
-  { href: "/press", label: "보도자료" },
+  { href: "/vocalist", label: "성악가" },
+  { href: "/conductor", label: "지휘자" },
   { href: "/soborche", label: "튀김소보체" },
+  { href: "/press", label: "보도자료" },
   { href: "/contact", label: "컨택트" },
 ];
 

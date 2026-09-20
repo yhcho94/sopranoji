@@ -32,7 +32,7 @@ export default function AboutPage() {
   return (
     <div>
       <PageHero
-        src="/images/profile-hero.jpg"
+        src="/images/about-hero.jpg"
         alt="소프라노 지정윤"
         eyebrow="ABOUT"
         title="소개"
@@ -44,12 +44,12 @@ export default function AboutPage() {
             소프라노 지정윤은 숙명여자대학교 대학원에서 성악학 석사를 마치고,
             이탈리아 페스카레제 시립음악원에서 최고연주자과정과 &lsquo;Canto
             Spagnole&rsquo; 과정을 수료했습니다. 팝페라 그룹
-            &lsquo;칼라스&rsquo;의 멤버로 다수의 러지컴 갈라콘서트에
+            &lsquo;칼라스&rsquo;의 멤버로 다수의 뮤지컬 갈라콘서트에
             출연했고, 스위스 취리히와 이탈리아 줄리아넬로 초청 연주 등
             국내외 무대에서 활동해 왔습니다.
           </p>
           <p>
-            계룡시 어린이뉴지컴합창단을 창단해 상임지휘자를 지냈고, 육·해·공군
+            계룡시 어린이뮤지컬합창단을 창단해 상임지휘자를 지냈고, 육·해·공군
             3군본부 군악대 객원 지휘를 맡기도 했습니다.
           </p>
           <p>

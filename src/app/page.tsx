@@ -37,7 +37,7 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/performances"
+              href="/vocalist"
               className="rounded-full border border-accent px-7 py-3 text-sm tracking-wide text-accent transition-colors hover:bg-accent-soft"
             >
               공연 보기
@@ -103,7 +103,7 @@ export default function Home() {
 
         <div className="mt-10 text-center">
           <Link
-            href="/performances"
+            href="/vocalist"
             className="text-sm tracking-wide text-accent hover:underline"
           >
             공연 전체 보기 →

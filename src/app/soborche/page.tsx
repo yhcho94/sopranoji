@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import ImageGallery from "@/components/ImageGallery";
 
 export const metadata: Metadata = {
   title: "튀김소보체 | 소프라노 지정윤",
 };
+
+const GALLERY = Array.from(
+  { length: 12 },
+  (_, i) => `/images/soborche-gallery/${i + 1}.jpg`,
+);
 
 export default function SoborchePage() {
   return (
@@ -29,6 +35,10 @@ export default function SoborchePage() {
             &lsquo;클라시쿠스&rsquo;, &lsquo;목청맨션&rsquo; 등 다른 참가
             팀들과 함께 완성도 높은 합동 무대를 펼치기도 했습니다.
           </p>
+        </div>
+
+        <div className="mt-10">
+          <ImageGallery images={GALLERY} alt="튀김소보체 공연 사진" />
         </div>
 
         <div className="mt-10">

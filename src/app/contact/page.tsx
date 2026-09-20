@@ -53,8 +53,8 @@ export default function ContactPage() {
 
       <div className="mx-auto max-w-2xl px-6 pt-6 pb-16 text-center">
         <p className="text-base font-bold leading-7 text-foreground sm:text-lg">
-          공연, 협업, 세종리틀싱어즈 문의 모두 반갑습니다. 아래 채널로 편하게
-          연락해 주세요.
+          공연·사회·특강·협업 섭외부터 세종리틀싱어즈, 튀김소보체 관련
+          문의까지 모두 반갑습니다. 아래 채널로 편하게 연락해 주세요.
         </p>
 
         <div className="mt-12 flex flex-wrap items-start justify-center gap-x-6 gap-y-8 sm:gap-x-8">

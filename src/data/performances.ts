@@ -1,3 +1,5 @@
+import { dateSortKey } from "@/lib/date";
+
 export type Performance = {
   id: string;
   date: string;
@@ -8,7 +10,7 @@ export type Performance = {
 };
 
 // 네이버 인물정보(본인/대리인 관리) 및 본인 제출 참가신청서 등 공개된 자료를 바탕으로 정리했습니다.
-export const performances: Performance[] = [
+const PERFORMANCES_RAW: Performance[] = [
   {
     id: "2026-dongyoya-2",
     date: "2026.09.05",
@@ -326,3 +328,7 @@ export const performances: Performance[] = [
     note: "동료 음악가들과 함께 마련한 나눔 콘서트",
   },
 ];
+
+export const performances = [...PERFORMANCES_RAW].sort(
+  (a, b) => dateSortKey(b.date) - dateSortKey(a.date),
+);

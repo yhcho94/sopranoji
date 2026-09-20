@@ -33,6 +33,10 @@ export default function SoborchePage() {
 
       <div className="mx-auto max-w-3xl px-6 py-16">
         <div className="space-y-6 text-sm leading-8 text-muted sm:text-base">
+          <p className="text-base text-foreground sm:text-lg">
+            클래식의 문턱을 낮추고 무대를 즐기는 팀, 튀김소보체의 한 사람으로
+            함께합니다.
+          </p>
           <p>
             지정윤은 성악가들로 구성된 클래식 쇼콰이어 팀
             &lsquo;튀김소보체&rsquo;의 멤버로 활동하고 있습니다. 2022년 9월

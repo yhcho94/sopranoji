@@ -17,8 +17,8 @@ export default function PressPage() {
       />
 
       <div className="mx-auto max-w-3xl px-6 py-16">
-        <p className="text-sm leading-7 text-muted">
-          언론에 소개된 소프라노 지정윤의 활동 소식입니다.
+        <p className="text-base leading-7 text-foreground sm:text-lg">
+          지정윤의 무대와 활동을 전한 언론의 기록들을 모았습니다.
         </p>
 
         {pressItems.length === 0 && (

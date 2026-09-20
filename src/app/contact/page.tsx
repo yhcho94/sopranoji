@@ -52,8 +52,9 @@ export default function ContactPage() {
       />
 
       <div className="mx-auto max-w-2xl px-6 py-16 text-center">
-        <p className="text-sm leading-7 text-muted sm:text-base">
-          공연, 협업, 세종리틀싱어즈 관련 문의는 아래 채널로 연락해 주세요.
+        <p className="text-base leading-7 text-foreground sm:text-lg">
+          공연, 협업, 세종리틀싱어즈 문의 모두 반갑습니다. 아래 채널로 편하게
+          연락해 주세요.
         </p>
 
         <div className="mt-12 flex flex-wrap items-start justify-center gap-x-6 gap-y-8 sm:gap-x-8">

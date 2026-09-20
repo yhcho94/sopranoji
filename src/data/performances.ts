@@ -14,9 +14,9 @@ const PERFORMANCES_RAW: Performance[] = [
   {
     id: "2026-dongyoya-2",
     date: "2026.09.05",
-    title: "소프라노 지정윤 Classic & 동요음악회 〈동요야, 성악이랑 놀자〉",
+    title: "소프라노 지정윤 리사이틀 〈동요야, 성악이랑 놀자Ⅱ〉",
     venue: "세종음악창작소 누리락",
-    upcoming: true,
+    note: "세종시문화재단 지원사업으로 개최",
   },
   {
     id: "2025-12-29-safety",

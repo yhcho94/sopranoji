@@ -8,17 +8,19 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative flex min-h-[92vh] items-center overflow-hidden border-b border-line">
-        <Image
-          src="/images/profile-hero.jpg"
-          alt="소프라노 지정윤"
-          fill
-          priority
-          className="object-cover object-center opacity-90"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-5xl px-6 py-24 text-center animate-fade-up">
+      <section className="relative overflow-hidden border-b border-line">
+        <div className="relative h-[58vh] min-h-[380px] w-full sm:h-[68vh]">
+          <Image
+            src="/images/profile-hero.jpg"
+            alt="소프라노 지정윤"
+            fill
+            priority
+            className="object-cover object-top"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
+        </div>
+
+        <div className="relative mx-auto max-w-5xl px-6 py-16 text-center animate-fade-up">
           <p className="mb-5 text-xs tracking-[0.5em] text-accent">
             SOPRANO · CONDUCTOR
           </p>

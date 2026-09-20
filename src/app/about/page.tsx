@@ -41,6 +41,10 @@ export default function AboutPage() {
 
       <div className="mx-auto max-w-3xl px-6 py-16">
         <div className="space-y-6 text-sm leading-8 text-muted sm:text-base">
+          <p className="text-base text-foreground sm:text-lg">
+            무대와 삶, 그 모든 순간을 노래로 채워온 소프라노 지정윤을
+            소개합니다.
+          </p>
           <p>
             소프라노 지정윤은 숙명여자대학교 대학원에서 성악학 석사를 마치고,
             이탈리아 페스카레제 시립음악원에서 최고연주자과정과 &lsquo;Canto

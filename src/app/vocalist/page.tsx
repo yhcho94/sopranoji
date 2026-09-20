@@ -52,6 +52,10 @@ export default function VocalistPage() {
             연주 등 국내외 무대에서 활동해 왔습니다. 클래식 쇼콰이어
             &lsquo;튀김소보체&rsquo;의 멤버로도 활동하고 있습니다.
           </p>
+          <p>
+            최근에는 세종시문화재단의 지원을 받아 독창회를 여는 등, 지금도
+            꾸준히 무대에 오르며 왕성하게 활동하고 있습니다.
+          </p>
         </div>
 
         <div className="mt-10">

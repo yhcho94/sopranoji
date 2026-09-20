@@ -41,7 +41,7 @@ export default function AboutPage() {
 
       <div className="mx-auto max-w-3xl px-6 py-16">
         <div className="space-y-6 text-sm leading-8 text-muted sm:text-base">
-          <p className="text-base text-foreground sm:text-lg">
+          <p className="text-base font-bold text-foreground sm:text-lg">
             무대와 삶, 그 모든 순간을 노래로 채워온 소프라노 지정윤을
             소개합니다.
           </p>

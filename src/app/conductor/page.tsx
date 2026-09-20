@@ -30,6 +30,10 @@ export default function ConductorPage() {
 
       <div className="mx-auto max-w-3xl px-6 py-16">
         <div className="space-y-6 text-sm leading-8 text-muted sm:text-base">
+          <p className="text-base font-bold text-foreground sm:text-lg">
+            세종리틀싱어즈를 이끄는 지휘자, 아이들의 목소리로 무대를
+            만듭니다.
+          </p>
           <p>
             지정윤은 2023년 10월부터 세종리틀싱어즈의 단장이자 지휘자로서,
             아이들의 목소리로 무대를 만들어가고 있습니다. 세종드림예술기획

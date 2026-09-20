@@ -43,7 +43,7 @@ export default function ContactPage() {
   return (
     <div>
       <PageHero
-        src="/images/profile-hero.jpg"
+        src="/images/contact-hero.jpg"
         alt="소프라노 지정윤"
         eyebrow="CONTACT"
         title="컨택트"

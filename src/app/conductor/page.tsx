@@ -28,7 +28,7 @@ export default function ConductorPage() {
         title="지휘자"
       />
 
-      <div className="mx-auto max-w-3xl px-6 py-16">
+      <div className="mx-auto max-w-3xl px-6 pt-6 pb-16">
         <div className="space-y-6 text-sm leading-8 text-muted sm:text-base">
           <p className="text-base font-bold text-foreground sm:text-lg">
             세종리틀싱어즈를 이끄는 지휘자, 아이들의 목소리로 무대를

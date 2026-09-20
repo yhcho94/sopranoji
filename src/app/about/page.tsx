@@ -37,9 +37,10 @@ export default function AboutPage() {
         alt="소프라노 지정윤"
         eyebrow="ABOUT"
         title="소개"
+        imagePosition="object-[center_15%]"
       />
 
-      <div className="mx-auto max-w-3xl px-6 py-16">
+      <div className="mx-auto max-w-3xl px-6 pt-6 pb-16">
         <div className="space-y-6 text-sm leading-8 text-muted sm:text-base">
           <p className="text-base font-bold text-foreground sm:text-lg">
             무대와 삶, 그 모든 순간을 노래로 채워온 소프라노 지정윤을

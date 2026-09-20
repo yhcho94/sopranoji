@@ -16,7 +16,7 @@ export default function PressPage() {
         title="보도자료"
       />
 
-      <div className="mx-auto max-w-3xl px-6 py-16">
+      <div className="mx-auto max-w-3xl px-6 pt-6 pb-16">
         <p className="text-base font-bold leading-7 text-foreground sm:text-lg">
           지정윤의 무대와 활동을 전한 언론의 기록들을 모았습니다.
         </p>

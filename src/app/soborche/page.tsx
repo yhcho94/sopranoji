@@ -31,7 +31,7 @@ export default function SoborchePage() {
         title="튀김소보체"
       />
 
-      <div className="mx-auto max-w-3xl px-6 py-16">
+      <div className="mx-auto max-w-3xl px-6 pt-6 pb-16">
         <div className="space-y-6 text-sm leading-8 text-muted sm:text-base">
           <p className="text-base font-bold text-foreground sm:text-lg">
             클래식의 문턱을 낮추고 무대를 즐기는 팀, 튀김소보체의 한 사람으로

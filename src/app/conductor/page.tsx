@@ -17,7 +17,7 @@ export default function ConductorPage() {
   return (
     <div>
       <PageHero
-        src="/images/profile-hero.jpg"
+        src="/images/conductor-hero.jpg"
         alt="소프라노 지정윤"
         eyebrow="CONDUCTOR"
         title="지휘자"

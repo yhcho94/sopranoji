@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ImageGallery from "@/components/ImageGallery";
+import VideoGallery from "@/components/VideoGallery";
 
 export const metadata: Metadata = {
   title: "튀김소보체 | 소프라노 지정윤",
 };
+
+const VIDEOS = [
+  { id: "H-bZDO64GsA", title: "싱포골드 무대 영상 1" },
+  { id: "IprlWzGhhi0", title: "싱포골드 무대 영상 2" },
+];
 
 const GALLERY = [
   { src: "/images/soborche-gallery/1.jpg", width: 1440, height: 1080 },
@@ -49,6 +55,10 @@ export default function SoborchePage() {
             &lsquo;클라시쿠스&rsquo;, &lsquo;목청맨션&rsquo; 등 다른 참가
             팀들과 함께 완성도 높은 합동 무대를 펼치기도 했습니다.
           </p>
+        </div>
+
+        <div className="mt-10">
+          <VideoGallery videos={VIDEOS} />
         </div>
 
         <div className="mt-10">

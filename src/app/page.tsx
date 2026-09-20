@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import LikeButton from "@/components/LikeButton";
 
 const MENU = [
   {
@@ -85,7 +86,7 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-3xl px-6 py-16 text-center animate-fade-up">
+        <div className="relative mx-auto max-w-3xl px-6 py-10 text-center animate-fade-up">
           <p className="mb-5 text-xs tracking-[0.5em] text-accent">
             SOPRANO · CONDUCTOR
           </p>
@@ -102,22 +103,25 @@ export default function Home() {
             성악가 지정윤은 클래식과 대중의 경계를 넘나들며, 노래로 사람과
             사람을 잇는 음악가입니다.
           </p>
+          <div className="mt-8 flex justify-center">
+            <LikeButton />
+          </div>
         </div>
       </section>
 
       {/* Menu grid */}
-      <section className="mx-auto max-w-4xl px-6 py-20">
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
+      <section className="mx-auto max-w-4xl px-6 py-10">
+        <div className="grid grid-cols-3 gap-3 sm:gap-5">
           {MENU.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group flex flex-col items-center gap-3 rounded-2xl border border-line bg-background-elevated px-4 py-8 text-center transition-colors hover:border-accent/50"
+              className="group flex flex-col items-center gap-2 rounded-2xl border border-line bg-background-elevated px-2 py-6 text-center transition-colors hover:border-accent/50 sm:gap-3 sm:px-4 sm:py-8"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent/40 text-accent transition-colors group-hover:bg-accent-soft">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-accent/40 text-accent transition-colors group-hover:bg-accent-soft sm:h-12 sm:w-12">
                 {item.icon}
               </span>
-              <span className="text-sm tracking-wide text-foreground">
+              <span className="text-xs tracking-wide text-foreground sm:text-sm">
                 {item.label}
               </span>
             </Link>

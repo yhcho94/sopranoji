@@ -11,6 +11,26 @@ export type PressItem = {
 // 웹 검색으로 검증된 언론 기사만 수록했습니다. 추가 보도자료(원문 링크)를 보내주시면 이 목록에 반영합니다.
 export const pressItems: PressItem[] = [
   {
+    id: "2024-shinailbo-yangyang-concert",
+    date: "2024.08.22",
+    outlet: "신아일보",
+    title: "양양문화재단, 남대천 퐁당퐁당물놀이장서 야외 콘서트 24일 개최",
+    excerpt:
+      "시선을 사로잡는 다양한 레퍼토리 공연. 하트 퀸의 전통 마술공연, 소프라노 지정윤, 인디아모 공연, 에이스트링, 튠에이드, 딴따라패밀리 등이 출연한다.",
+    url: "https://www.shinailbo.co.kr/news/articleView.html?idxno=1920994",
+    tag: "야외공연",
+  },
+  {
+    id: "2025-ccnnews-artemi-freedom-harmony",
+    date: "2025.08.20",
+    outlet: "충청뉴스",
+    title: "아르테미, 광복 80주년 기념 콘서트 'Freedom Harmony' 성황리 개최",
+    excerpt:
+      "세종 문화예술단체 아르테미(대표 김미경)가 기획하고 ㈜에이스와 세종시메세나협회가 후원한 광복 80주년 기념 콘서트 'Freedom Harmony'가 지난 17일 세종 비오케이아트센터 공연장에서 성황리에 막을 내렸다.",
+    url: "http://www.ccnnews.co.kr/news/articleView.html?idxno=381987",
+    tag: "콘서트",
+  },
+  {
     id: "2026-jbnews-dongyoya-2",
     date: "2026.08.31",
     outlet: "중부매일",

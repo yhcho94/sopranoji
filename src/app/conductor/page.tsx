@@ -6,10 +6,17 @@ export const metadata: Metadata = {
   title: "지휘자 | 소프라노 지정윤",
 };
 
-const GALLERY = Array.from(
-  { length: 9 },
-  (_, i) => `/images/conductor-gallery/${i + 1}.jpg`,
-);
+const GALLERY = [
+  { src: "/images/conductor-gallery/1.jpg", width: 1440, height: 960 },
+  { src: "/images/conductor-gallery/2.jpg", width: 1440, height: 960 },
+  { src: "/images/conductor-gallery/3.jpg", width: 1440, height: 1080 },
+  { src: "/images/conductor-gallery/4.jpg", width: 1440, height: 1080 },
+  { src: "/images/conductor-gallery/5.jpg", width: 1440, height: 960 },
+  { src: "/images/conductor-gallery/6.jpg", width: 1440, height: 845 },
+  { src: "/images/conductor-gallery/7.jpg", width: 1440, height: 960 },
+  { src: "/images/conductor-gallery/8.jpg", width: 1372, height: 840 },
+  { src: "/images/conductor-gallery/9.jpg", width: 1440, height: 1080 },
+];
 
 export default function ConductorPage() {
   return (

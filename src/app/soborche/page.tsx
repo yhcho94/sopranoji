@@ -6,10 +6,20 @@ export const metadata: Metadata = {
   title: "튀김소보체 | 소프라노 지정윤",
 };
 
-const GALLERY = Array.from(
-  { length: 12 },
-  (_, i) => `/images/soborche-gallery/${i + 1}.jpg`,
-);
+const GALLERY = [
+  { src: "/images/soborche-gallery/1.jpg", width: 1440, height: 1080 },
+  { src: "/images/soborche-gallery/2.jpg", width: 1224, height: 816 },
+  { src: "/images/soborche-gallery/3.jpg", width: 1440, height: 1920 },
+  { src: "/images/soborche-gallery/4.jpg", width: 1092, height: 816 },
+  { src: "/images/soborche-gallery/5.jpg", width: 1440, height: 1080 },
+  { src: "/images/soborche-gallery/6.jpg", width: 1440, height: 1920 },
+  { src: "/images/soborche-gallery/7.jpg", width: 1440, height: 1799 },
+  { src: "/images/soborche-gallery/8.jpg", width: 1440, height: 991 },
+  { src: "/images/soborche-gallery/9.jpg", width: 1440, height: 1800 },
+  { src: "/images/soborche-gallery/10.jpg", width: 1440, height: 1799 },
+  { src: "/images/soborche-gallery/11.jpg", width: 1440, height: 1800 },
+  { src: "/images/soborche-gallery/12.jpg", width: 1034, height: 582 },
+];
 
 export default function SoborchePage() {
   return (

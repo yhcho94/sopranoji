@@ -3,11 +3,17 @@
 import { useState } from "react";
 import Image from "next/image";
 
+export type GalleryImage = {
+  src: string;
+  width: number;
+  height: number;
+};
+
 export default function ImageGallery({
   images,
   alt,
 }: {
-  images: string[];
+  images: GalleryImage[];
   alt: string;
 }) {
   const [selected, setSelected] = useState<number | null>(null);
@@ -15,15 +21,16 @@ export default function ImageGallery({
   return (
     <>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-        {images.map((src, i) => (
+        {images.map((img, i) => (
           <button
-            key={src}
+            key={img.src}
             type="button"
             onClick={() => setSelected(i)}
             aria-label="사진 크게 보기"
-            className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line transition-opacity hover:opacity-90"
+            style={{ aspectRatio: `${img.width} / ${img.height}` }}
+            className="relative overflow-hidden rounded-xl border border-line transition-opacity hover:opacity-90"
           >
-            <Image src={src} alt={alt} fill className="object-cover" />
+            <Image src={img.src} alt={alt} fill className="object-cover" />
           </button>
         ))}
       </div>
@@ -52,7 +59,7 @@ export default function ImageGallery({
           </button>
           <div className="relative h-full max-h-[85vh] w-full max-w-3xl">
             <Image
-              src={images[selected]}
+              src={images[selected].src}
               alt={alt}
               fill
               className="object-contain"

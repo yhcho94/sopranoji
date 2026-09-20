@@ -29,9 +29,27 @@ export default function ConductorPage() {
       />
 
       <div className="mx-auto max-w-3xl px-6 py-16">
-        <p className="text-sm leading-8 text-muted sm:text-base">
-          아이들과 함께 만든 무대, 그 순간들의 기록입니다.
-        </p>
+        <div className="space-y-6 text-sm leading-8 text-muted sm:text-base">
+          <p>
+            지정윤은 2023년 10월부터 세종리틀싱어즈의 단장이자 지휘자로서,
+            아이들의 목소리로 무대를 만들어가고 있습니다. 세종드림예술기획
+            대표로서 어린이 합창 교육과 공연 기획을 함께 이끌며, 세종을
+            대표하는 어린이 합창 문화를 만드는 데 앞장서고 있습니다.
+          </p>
+          <p>
+            2023년에는 세종리틀싱어즈와 함께 세계합창대회(World Choir
+            Games)에 출전해 실버 디플로마(Silver Diploma)를 수상했고, 같은
+            해 세종 음악인상을 수상하며 지휘자로서의 역량을 인정받았습니다.
+          </p>
+          <p>
+            이에 앞서 세종 사계절하모니합창단과 계룡시 뮤지컬 어린이합창단의
+            지휘자를 역임했고, 육·해·공군 3군본부 군악대 객원 지휘를 맡는 등
+            여러 무대에서 지휘 경험을 쌓아왔습니다. 세종리틀싱어즈를 맡은
+            이후에는 세종특별자치시장 취임식, 세종한글축제, 정기연주회 등
+            크고 작은 무대에 꾸준히 올라 아이들과 함께 완성도 높은 공연을
+            선보이고 있습니다.
+          </p>
+        </div>
 
         <div className="mt-10">
           <ImageGallery

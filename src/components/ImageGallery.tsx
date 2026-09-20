@@ -1,0 +1,65 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+
+export default function ImageGallery({
+  images,
+  alt,
+}: {
+  images: string[];
+  alt: string;
+}) {
+  const [selected, setSelected] = useState<number | null>(null);
+
+  return (
+    <>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        {images.map((src, i) => (
+          <button
+            key={src}
+            type="button"
+            onClick={() => setSelected(i)}
+            aria-label="사진 크게 보기"
+            className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line transition-opacity hover:opacity-90"
+          >
+            <Image src={src} alt={alt} fill className="object-cover" />
+          </button>
+        ))}
+      </div>
+
+      {selected !== null && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 p-6"
+          onClick={() => setSelected(null)}
+        >
+          <button
+            type="button"
+            aria-label="닫기"
+            onClick={() => setSelected(null)}
+            className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              className="h-5 w-5"
+              aria-hidden="true"
+            >
+              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+            </svg>
+          </button>
+          <div className="relative h-full max-h-[85vh] w-full max-w-3xl">
+            <Image
+              src={images[selected]}
+              alt={alt}
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+      )}
+    </>
+  );
+}

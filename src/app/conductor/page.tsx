@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import PageHero from "@/components/PageHero";
+import ImageGallery from "@/components/ImageGallery";
 
 export const metadata: Metadata = {
   title: "지휘자 | 소프라노 지정윤",
 };
 
-const GALLERY = Array.from({ length: 9 }, (_, i) => ({
-  id: `conductor-gallery-${i + 1}`,
-  src: `/images/conductor-gallery/${i + 1}.jpg`,
-}));
+const GALLERY = Array.from(
+  { length: 9 },
+  (_, i) => `/images/conductor-gallery/${i + 1}.jpg`,
+);
 
 export default function ConductorPage() {
   return (
@@ -26,20 +26,8 @@ export default function ConductorPage() {
           아이들과 함께 만든 무대, 그 순간들의 기록입니다.
         </p>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {GALLERY.map((item) => (
-            <div
-              key={item.id}
-              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line"
-            >
-              <Image
-                src={item.src}
-                alt="지정윤 지휘 활동 사진"
-                fill
-                className="object-cover"
-              />
-            </div>
-          ))}
+        <div className="mt-10">
+          <ImageGallery images={GALLERY} alt="지정윤 지휘 활동 사진" />
         </div>
       </div>
     </div>

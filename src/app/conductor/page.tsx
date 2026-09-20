@@ -34,7 +34,11 @@ export default function ConductorPage() {
         </p>
 
         <div className="mt-10">
-          <ImageGallery images={GALLERY} alt="지정윤 지휘 활동 사진" />
+          <ImageGallery
+            images={GALLERY}
+            alt="지정윤 지휘 활동 사진"
+            layout="flow"
+          />
         </div>
       </div>
     </div>

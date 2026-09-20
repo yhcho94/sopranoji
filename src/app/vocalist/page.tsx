@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ImageGallery from "@/components/ImageGallery";
+import PastPerformances from "@/components/PastPerformances";
 import { performances } from "@/data/performances";
 
 export const metadata: Metadata = {
   title: "성악가 | 소프라노 지정윤",
 };
+
+const PAST_YEAR_CUTOFF = 2022;
+const recentPerformances = performances.filter(
+  (item) => Number(item.date.slice(0, 4)) > PAST_YEAR_CUTOFF,
+);
+const pastPerformances = performances.filter(
+  (item) => Number(item.date.slice(0, 4)) <= PAST_YEAR_CUTOFF,
+);
 
 const GALLERY = [
   { src: "/images/vocalist-gallery/1.jpg", width: 1280, height: 1600 },
@@ -42,7 +51,11 @@ export default function VocalistPage() {
         </div>
 
         <div className="mt-10">
-          <ImageGallery images={GALLERY} alt="소프라노 지정윤 공연 사진" />
+          <ImageGallery
+            images={GALLERY}
+            alt="소프라노 지정윤 공연 사진"
+            layout="flow"
+          />
         </div>
 
         <div className="mt-14">
@@ -51,7 +64,7 @@ export default function VocalistPage() {
         </div>
 
         <div className="mt-8 space-y-6">
-          {performances.map((item) => (
+          {recentPerformances.map((item) => (
             <div
               key={item.id}
               className="rounded-2xl border border-line bg-background-elevated p-7"
@@ -77,6 +90,8 @@ export default function VocalistPage() {
             </div>
           ))}
         </div>
+
+        <PastPerformances items={pastPerformances} />
 
         <p className="mt-12 rounded-xl border border-dashed border-line p-5 text-xs leading-6 text-muted/80">
           ※ 네이버 인물정보(본인/대리인 관리) 및 본인 제출 자료를 바탕으로

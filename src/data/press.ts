@@ -1,3 +1,5 @@
+import { dateSortKey } from "@/lib/date";
+
 export type PressItem = {
   id: string;
   date: string;
@@ -9,7 +11,17 @@ export type PressItem = {
 };
 
 // 웹 검색으로 검증된 언론 기사만 수록했습니다. 추가 보도자료(원문 링크)를 보내주시면 이 목록에 반영합니다.
-export const pressItems: PressItem[] = [
+const PRESS_ITEMS_RAW: PressItem[] = [
+  {
+    id: "2021-thetoday-world-tour",
+    date: "2021.11.08",
+    outlet: "the-today.com",
+    title: "지정윤, 27일 '음악으로 떠나는 세계여행' 독창회",
+    excerpt:
+      "세종시 문화재단 청년예술가로 선정된 이탈리아 유학파 성악가 지정윤이 27일 오후 7시 반곡동 비오케이아트센터 공연장에서 독창회 무대를 갖는다. 이탈리아·독일·미국 등 세계 각국 대표곡으로 감동을 선사할 예정이다.",
+    url: "https://www.the-today.com/news/articleView.html?idxno=54451",
+    tag: "독창회",
+  },
   {
     id: "2024-shinailbo-yangyang-concert",
     date: "2024.08.22",
@@ -51,3 +63,7 @@ export const pressItems: PressItem[] = [
     tag: "독창회",
   },
 ];
+
+export const pressItems = [...PRESS_ITEMS_RAW].sort(
+  (a, b) => dateSortKey(b.date) - dateSortKey(a.date),
+);

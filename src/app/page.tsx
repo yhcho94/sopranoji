@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ReactionButton from "@/components/ReactionButton";
+import InstallAppButton from "@/components/InstallAppButton";
 
 const MENU = [
   {
@@ -137,6 +138,10 @@ export default function Home() {
               </span>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <InstallAppButton />
         </div>
       </section>
     </div>

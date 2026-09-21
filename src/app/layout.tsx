@@ -16,10 +16,53 @@ const notoSerifKR = Noto_Serif_KR({
   weight: ["400", "600", "700"],
 });
 
+const SITE_URL = "https://sopranoji.vercel.app";
+const SITE_TITLE = "소프라노 지정윤 | Soprano Ji Joungyun";
+const SITE_DESCRIPTION =
+  "소프라노이자 세종리틀싱어즈 지휘자·단장 지정윤의 공식 홈페이지. 소개, 보도자료, 컨택트 정보를 확인하세요.";
+
 export const metadata: Metadata = {
-  title: "소프라노 지정윤 | Soprano Ji Joungyun",
-  description:
-    "소프라노이자 세종리틀싱어즈 지휘자·단장 지정윤의 공식 홈페이지. 소개, 보도자료, 컨택트 정보를 확인하세요.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: "%s | 소프라노 지정윤",
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "지정윤",
+    "소프라노 지정윤",
+    "Ji Joungyun",
+    "세종리틀싱어즈",
+    "세종리틀싱어즈 지휘자",
+    "튀김소보체",
+    "디바칸타빌레",
+    "세종드림예술기획",
+  ],
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    url: SITE_URL,
+    siteName: SITE_TITLE,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/images/profile-hero.jpg",
+        width: 1448,
+        height: 1086,
+        alt: "소프라노 지정윤",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/images/profile-hero.jpg"],
+  },
   appleWebApp: {
     title: "지정윤",
     statusBarStyle: "black-translucent",
@@ -30,6 +73,29 @@ export const viewport: Viewport = {
   themeColor: "#08070a",
 };
 
+const PERSON_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "지정윤",
+  alternateName: "Ji Joungyun",
+  url: SITE_URL,
+  image: `${SITE_URL}/images/profile-hero.jpg`,
+  jobTitle: ["소프라노", "지휘자"],
+  description: SITE_DESCRIPTION,
+  affiliation: [
+    { "@type": "Organization", name: "세종리틀싱어즈" },
+    { "@type": "Organization", name: "세종드림예술기획" },
+    { "@type": "Organization", name: "튀김소보체" },
+    { "@type": "Organization", name: "디바칸타빌레" },
+  ],
+  sameAs: [
+    "https://www.instagram.com/jjy1340",
+    "https://youtube.com/channel/UCAKsSWLfvD0hgk-aLIKF2SQ",
+    "https://naver.me/5LQZ7evZ",
+    "https://www.facebook.com/share/1AsFo2t6jG/",
+  ],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -37,6 +103,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${notoSansKR.variable} ${notoSerifKR.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }}
+        />
         <Header />
         <main className="flex-1 pt-16 pb-14">{children}</main>
         <Footer />

@@ -2,9 +2,15 @@
 
 import { useEffect, useState } from "react";
 
+const INSTALLED_KEY = "sopranoji-app-installed";
+
 type BeforeInstallPromptEvent = Event & {
   prompt: () => Promise<void>;
   userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
+};
+
+type NavigatorWithRelatedApps = Navigator & {
+  getInstalledRelatedApps?: () => Promise<unknown[]>;
 };
 
 function checkStandalone() {
@@ -20,6 +26,24 @@ function checkIOS() {
   return /iphone|ipad|ipod/i.test(window.navigator.userAgent);
 }
 
+function readInstalledFlag() {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.localStorage.getItem(INSTALLED_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function writeInstalledFlag(installed: boolean) {
+  try {
+    if (installed) window.localStorage.setItem(INSTALLED_KEY, "1");
+    else window.localStorage.removeItem(INSTALLED_KEY);
+  } catch {
+    // 시크릿 모드 등 저장소가 막힌 환경에서는 무시한다
+  }
+}
+
 export default function InstallAppButton() {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
@@ -27,17 +51,70 @@ export default function InstallAppButton() {
   const [isIOS] = useState(checkIOS);
   const [showHint, setShowHint] = useState(false);
   const [justInstalled, setJustInstalled] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(readInstalledFlag);
 
   useEffect(() => {
-    const handler = (e: Event) => {
+    // 설치 프롬프트가 다시 뜬다는 건 아직 설치되어 있지 않다는 뜻이다
+    const onBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
+      setIsInstalled(false);
+      writeInstalledFlag(false);
     };
-    window.addEventListener("beforeinstallprompt", handler);
-    return () => window.removeEventListener("beforeinstallprompt", handler);
+    const onAppInstalled = () => {
+      setIsInstalled(true);
+      writeInstalledFlag(true);
+    };
+    window.addEventListener("beforeinstallprompt", onBeforeInstallPrompt);
+    window.addEventListener("appinstalled", onAppInstalled);
+    return () => {
+      window.removeEventListener("beforeinstallprompt", onBeforeInstallPrompt);
+      window.removeEventListener("appinstalled", onAppInstalled);
+    };
+  }, []);
+
+  useEffect(() => {
+    const nav = navigator as NavigatorWithRelatedApps;
+    if (!nav.getInstalledRelatedApps) return;
+    nav
+      .getInstalledRelatedApps()
+      .then((apps) => {
+        const installed = apps.length > 0;
+        setIsInstalled(installed);
+        writeInstalledFlag(installed);
+      })
+      .catch(() => {});
   }, []);
 
   if (isStandalone) return null;
+
+  if (isInstalled) {
+    return (
+      <div className="flex flex-col items-center">
+        <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 px-5 py-2.5 text-sm tracking-wide text-emerald-400">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            className="h-4 w-4"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="9" />
+            <path
+              d="M8 12.5l2.5 2.5L16 9.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span>홈 화면에 설치됨</span>
+        </span>
+        <p className="mt-2 text-xs text-muted/80">
+          홈 화면 아이콘으로 바로 열 수 있어요.
+        </p>
+      </div>
+    );
+  }
 
   const handleClick = async () => {
     if (deferredPrompt) {

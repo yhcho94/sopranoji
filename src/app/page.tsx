@@ -95,8 +95,8 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-line">
-        <div className="relative h-[58vh] min-h-[380px] w-full sm:h-[68vh]">
+      <section className="relative overflow-hidden border-b border-line lg:border-b-0">
+        <div className="relative h-[58vh] min-h-[380px] w-full overflow-hidden sm:h-[68vh] lg:mx-auto lg:mt-10 lg:h-auto lg:max-w-5xl lg:aspect-[16/9] lg:rounded-2xl lg:border">
           <Image
             src="/images/profile-hero.jpg"
             alt="소프라노 지정윤"

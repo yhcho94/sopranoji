@@ -37,6 +37,18 @@ const MENU = [
     ),
   },
   {
+    href: "/little-singers",
+    label: "세종리틀싱어즈",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
+        <circle cx="8" cy="7" r="2.4" />
+        <circle cx="16" cy="7" r="2.4" />
+        <path d="M4 19c0-2.8 1.8-5 4-5s4 2.2 4 5" strokeLinecap="round" />
+        <path d="M12 19c0-2.8 1.8-5 4-5s4 2.2 4 5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
     href: "/soborche",
     label: "튀김소보체",
     icon: (
@@ -45,6 +57,16 @@ const MENU = [
         <circle cx="16" cy="9" r="2.5" />
         <path d="M3.5 20c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5" strokeLinecap="round" />
         <path d="M13.5 20c.3-2.2 1.8-4 3.8-4.6" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    href: "/diva-cantabile",
+    label: "디바칸타빌레",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
+        <path d="M12 19c4-1 6-4.5 6-8V6l-6 2-6-2v5c0 3.5 2 7 6 8z" strokeLinejoin="round" />
+        <path d="M12 12v-2" strokeLinecap="round" />
       </svg>
     ),
   },

@@ -16,7 +16,7 @@ export default function PageHero({
   return (
     <div>
       {src && (
-        <div className="relative h-[34vh] min-h-[260px] w-full overflow-hidden border-b border-line sm:h-[46vh]">
+        <div className="relative h-[34vh] min-h-[260px] w-full overflow-hidden border-b border-line sm:h-[46vh] lg:mx-auto lg:mt-10 lg:h-auto lg:max-w-4xl lg:aspect-[16/9] lg:rounded-2xl lg:border">
           <Image
             src={src}
             alt={alt}

@@ -10,6 +10,18 @@ export const metadata: Metadata = {
     "튀김소보체 2nd 앨범 발매기념 콘서트 〈Taste of Classic〉 2026년 10월 24일(토) 오후 7시 대전예술의전당 아트홀.",
 };
 
+// 가나다순
+const MEMBERS = [
+  "강승규",
+  "김태형",
+  "박새나",
+  "신주형",
+  "임찬양",
+  "전용현",
+  "정원석",
+  "지정윤",
+];
+
 const ALBUMS: {
   order: string;
   title: string;
@@ -154,26 +166,53 @@ export default function SoborchePage() {
 
         <div className="space-y-6 text-sm leading-8 text-muted sm:text-base">
           <p className="text-base font-bold text-foreground sm:text-lg">
-            클래식의 문턱을 낮추고 무대를 즐기는 팀, 튀김소보체의 한 사람으로
-            함께합니다.
+            클래식 보컬의 하모니와 쇼 퍼포먼스를 결합한 퓨전 클래식 앙상블,
+            튀김소보체의 한 사람으로 함께합니다.
           </p>
           <p>
-            지정윤은 성악가들로 구성된 클래식 쇼콰이어 팀
-            &lsquo;튀김소보체&rsquo;의 멤버로 활동하고 있습니다. 2022년 9월
-            방영된 SBS 퍼포먼스 합창 오디션 프로그램 &lsquo;싱포골드(Sing For
-            Gold)&rsquo;에 출연해 뛰어난 무대를 선보였습니다.
+            &lsquo;보체(voce)&rsquo;는 이탈리아어로 &lsquo;목소리&rsquo;라는
+            뜻으로, 팀 이름에는 &lsquo;무엇을 튀겨도 맛있는 튀김처럼 무슨
+            노래를 불러도 맛있게 부른다&rsquo;는 의미를 담았습니다.
           </p>
           <p>
-            해당 프로그램에서 &lsquo;라젠카, 세이브 어스(Lazenca, Save
-            Us)&rsquo;를 웅장한 성악 스타일로 편곡해 큰 화제를 모았으며,
+            2022년 SBS 주말예능 &lsquo;싱포골드(Sing For Gold)&rsquo;에
+            쇼콰이어 팀으로 창단해 참가, 심사위원들의 극찬을 받으며 큰 이슈가
+            되었습니다. 해당 프로그램에서 &lsquo;라젠카, 세이브 어스(Lazenca,
+            Save Us)&rsquo;를 웅장한 성악 스타일로 편곡해 화제를 모았고,
             &lsquo;클라시쿠스&rsquo;, &lsquo;목청맨션&rsquo; 등 다른 참가
             팀들과 함께 완성도 높은 합동 무대를 펼치기도 했습니다.
+          </p>
+          <p>
+            튀김소보체는 클래식을 기반으로 대중음악, 팝, 크로스오버 등 다양한
+            장르의 음악에 퍼포먼스를 가미한 쇼콰이어 무대를 선보입니다.
+            관객들과 함께 즐기고 소통하며 무대를 만들어가는 유쾌하고 매력
+            넘치는 팀입니다.
           </p>
           <p>
             2024년 첫 앨범 &lsquo;Flying Fry&rsquo;를 시작으로, 2026년 8월
             두 번째 앨범 &lsquo;CLASSIC RE:BORN&rsquo;을 발매하며 클래시컬
             크로스오버 팀으로서의 색깔을 넓혀가고 있습니다.
           </p>
+        </div>
+
+        <div className="mt-10 overflow-hidden rounded-2xl border border-line">
+          <p className="border-b border-line bg-background-elevated px-6 py-3 text-xs tracking-[0.25em] text-accent">
+            MEMBER
+          </p>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 bg-background-elevated px-6 py-5">
+            {MEMBERS.map((name) => (
+              <li
+                key={name}
+                className={
+                  name === "지정윤"
+                    ? "text-sm font-bold text-accent sm:text-base"
+                    : "text-sm text-foreground sm:text-base"
+                }
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="mt-10 overflow-hidden rounded-2xl border border-line">

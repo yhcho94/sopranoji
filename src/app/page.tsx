@@ -37,18 +37,6 @@ const MENU = [
     ),
   },
   {
-    href: "/little-singers",
-    label: "세종리틀싱어즈",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
-        <circle cx="8" cy="7" r="2.4" />
-        <circle cx="16" cy="7" r="2.4" />
-        <path d="M4 19c0-2.8 1.8-5 4-5s4 2.2 4 5" strokeLinecap="round" />
-        <path d="M12 19c0-2.8 1.8-5 4-5s4 2.2 4 5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
     href: "/soborche",
     label: "튀김소보체",
     icon: (

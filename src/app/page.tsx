@@ -28,11 +28,21 @@ const MENU = [
   },
   {
     href: "/conductor",
-    label: "지휘자",
+    label: "지휘자(세종리틀싱어즈)",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
         <path d="M6 18L17 7" strokeLinecap="round" />
         <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    href: "/humanities-lecture",
+    label: "인문학 강사",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
+        <path d="M12 6c-1.8-1.3-4-2-6-2v13c2 0 4.2.7 6 2 1.8-1.3 4-2 6-2V4c-2 0-4.2.7-6 2z" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M12 6v13" strokeLinecap="round" />
       </svg>
     ),
   },

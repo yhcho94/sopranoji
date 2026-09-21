@@ -7,7 +7,8 @@ import { useState } from "react";
 const NAV_ITEMS = [
   { href: "/about", label: "소개" },
   { href: "/vocalist", label: "성악가" },
-  { href: "/conductor", label: "지휘자" },
+  { href: "/conductor", label: "지휘자(세종리틀싱어즈)" },
+  { href: "/humanities-lecture", label: "인문학 강사" },
   { href: "/soborche", label: "튀김소보체" },
   { href: "/diva-cantabile", label: "디바칸타빌레" },
   { href: "/press", label: "보도자료" },

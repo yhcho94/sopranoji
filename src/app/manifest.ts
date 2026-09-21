@@ -28,5 +28,13 @@ export default function manifest(): MetadataRoute.Manifest {
         purpose: "maskable",
       },
     ],
+    // 브라우저가 getInstalledRelatedApps()로 이 앱의 설치 여부를 알려주려면
+    // 매니페스트가 자기 자신을 관련 앱으로 선언해야 한다.
+    related_applications: [
+      {
+        platform: "webapp",
+        url: "https://sopranoji.vercel.app/manifest.webmanifest",
+      },
+    ],
   };
 }

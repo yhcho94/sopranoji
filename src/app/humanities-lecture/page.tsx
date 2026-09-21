@@ -8,7 +8,12 @@ export const metadata: Metadata = {
 export default function HumanitiesLecturePage() {
   return (
     <div>
-      <PageHero eyebrow="HUMANITIES LECTURE" title="인문학 강사" alt="인문학 강사" />
+      <PageHero
+        src="/images/humanities-lecture-hero.jpg"
+        alt="경찰대학교 뮤지컬 인문학 특강 중인 소프라노 지정윤"
+        eyebrow="HUMANITIES LECTURE"
+        title="인문학 강사"
+      />
 
       <div className="mx-auto max-w-3xl px-6 pt-6 pb-16">
         <div className="space-y-6 text-sm leading-8 text-muted sm:text-base">
@@ -33,9 +38,19 @@ export default function HumanitiesLecturePage() {
           </p>
         </div>
 
-        <p className="mt-12 rounded-xl border border-dashed border-line p-5 text-xs leading-6 text-muted/80">
-          ※ 대표 이미지는 추후 업데이트될 예정입니다.
-        </p>
+        <div className="mt-12 rounded-2xl border border-line bg-background-elevated p-6">
+          <p className="text-xs tracking-widest text-accent">강의 이력</p>
+          <p className="mt-4 text-sm text-muted">
+            2020. 6월 · 경찰대학교
+          </p>
+          <p className="mt-1 text-base font-bold text-foreground sm:text-lg">
+            뮤지컬을 통해 인생을 만나다 — 오페라의 유령과 함께
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            경찰대학교 3학년 학생들을 대상으로 뮤지컬 작품을 소개하고, 주요
+            스토리를 통해 인문학적 교훈을 전했습니다.
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -67,6 +67,11 @@ export const metadata: Metadata = {
     title: "지정윤",
     statusBarStyle: "black-translucent",
   },
+  verification: {
+    other: {
+      "naver-site-verification": "3145966b2876ec0c8405e82fed67dfa7ee73f732",
+    },
+  },
 };
 
 export const viewport: Viewport = {

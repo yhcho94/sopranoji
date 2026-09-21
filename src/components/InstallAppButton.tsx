@@ -26,6 +26,7 @@ export default function InstallAppButton() {
   const [isStandalone] = useState(checkStandalone);
   const [isIOS] = useState(checkIOS);
   const [showHint, setShowHint] = useState(false);
+  const [justInstalled, setJustInstalled] = useState(false);
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -41,8 +42,9 @@ export default function InstallAppButton() {
   const handleClick = async () => {
     if (deferredPrompt) {
       await deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
+      const { outcome } = await deferredPrompt.userChoice;
       setDeferredPrompt(null);
+      if (outcome === "accepted") setJustInstalled(true);
       return;
     }
     setShowHint((v) => !v);
@@ -70,6 +72,14 @@ export default function InstallAppButton() {
         </svg>
         <span>홈 화면에 추가</span>
       </button>
+
+      {justInstalled && (
+        <div className="mt-3 max-w-xs rounded-xl border border-line bg-background-elevated p-4 text-center text-xs leading-6 text-muted">
+          설치가 완료되었어요! 홈 화면에 아이콘이 바로 보이지 않으면, 폰의
+          앱 목록(서랍)에서 &lsquo;지정윤&rsquo;을 찾아 길게 누른 뒤
+          &lsquo;홈 화면에 추가&rsquo;를 선택해 주세요.
+        </div>
+      )}
 
       {showHint && (
         <div className="mt-3 max-w-xs rounded-xl border border-line bg-background-elevated p-4 text-center text-xs leading-6 text-muted">

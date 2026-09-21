@@ -39,12 +39,12 @@ const FACTS: { label: string; items: string[] }[] = [
     ],
   },
   {
-    label: "수상",
+    label: "주요 수상",
     items: [
       "World Choir Games(세계합창대회) 어린이합창 부문 Silver Diploma",
       "세종시 예술인상",
       "세종시 교육감상 (제119회 소방동요대회 대상 지도자상)",
-      "강경포구 전국 어린이 동요대회 지도자상",
+      "강경포구 전국 어린이 동요대회 지도자상 등 다수",
     ],
   },
 ];

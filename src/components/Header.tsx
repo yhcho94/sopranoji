@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { href: "/humanities-lecture", label: "인문학 강사" },
   { href: "/soborche", label: "튀김소보체" },
   { href: "/diva-cantabile", label: "디바칸타빌레" },
+  { href: "/sing-together", label: "싱투게더콰이어" },
   { href: "/press", label: "보도자료" },
   { href: "/contact", label: "컨택트" },
 ];

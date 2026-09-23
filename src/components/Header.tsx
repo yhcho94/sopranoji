@@ -13,7 +13,7 @@ const NAV_ITEMS = [
   { href: "/diva-cantabile", label: "디바칸타빌레" },
   { href: "/sing-together", label: "싱투게더콰이어" },
   { href: "/press", label: "보도자료" },
-  { href: "/contact", label: "컨택트" },
+  { href: "/contact", label: "컨택트(섭외)" },
 ];
 
 export default function Header() {

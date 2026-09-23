@@ -93,7 +93,7 @@ const MENU = [
   },
   {
     href: "/contact",
-    label: "컨택트",
+    label: "컨택트(섭외)",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true">
         <rect x="3" y="5" width="18" height="14" rx="2" />

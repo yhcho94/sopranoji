@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "컨택트 | 소프라노 지정윤",
+  title: "컨택트(섭외) | 소프라노 지정윤",
 };
 
 const EMAIL = "jjyy1340@naver.com";
@@ -48,7 +48,7 @@ export default function ContactPage() {
         src="/images/contact-hero.jpg"
         alt="소프라노 지정윤"
         eyebrow="CONTACT"
-        title="컨택트"
+        title="컨택트(섭외)"
       />
 
       <div className="mx-auto max-w-2xl px-6 pt-6 pb-16 text-center">

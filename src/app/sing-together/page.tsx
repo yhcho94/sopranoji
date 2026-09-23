@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import VideoGallery from "@/components/VideoGallery";
 
 export const metadata: Metadata = {
   title: "싱투게더콰이어 | 소프라노 지정윤",
 };
+
+const VIDEOS = [
+  { id: "sfuFVjg0ecs", title: "특별 무대 〈부모의 노래〉" },
+];
 
 export default function SingTogetherPage() {
   return (
@@ -25,6 +30,28 @@ export default function SingTogetherPage() {
             사랑하는 사람들이 모여 서로의 목소리를 맞추고, 무대 위에서 하나의
             하모니를 만들어가고 있습니다.
           </p>
+        </div>
+
+        <div className="mt-12">
+          <h2 className="text-xs tracking-[0.25em] text-accent">STAGE</h2>
+          <p className="mt-3 text-base font-bold text-foreground sm:text-lg">
+            특별 무대 〈부모의 노래〉
+          </p>
+          <div className="mt-5 space-y-4 text-sm leading-7 text-muted sm:text-base sm:leading-8">
+            <p>
+              세종 싱투게더 합창단이 세종리틀싱어즈 정기연주회에서 선보인
+              특별 무대 〈부모의 노래〉입니다. 싱투게더 합창단 부모님들이
+              자녀들에게 직접 전하는 마음을 담아 무대에 올랐습니다.
+            </p>
+            <p>
+              공연은 세종문화예술회관에서 진행되었으며, 부모와 자녀가 함께
+              만들어가는 가족 합창의 의미를 깊이 담은 순간이었습니다.
+            </p>
+          </div>
+
+          <div className="mt-6">
+            <VideoGallery videos={VIDEOS} />
+          </div>
         </div>
 
         <p className="mt-12 rounded-xl border border-dashed border-line p-5 text-xs leading-6 text-muted/80">

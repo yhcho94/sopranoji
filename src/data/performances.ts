@@ -12,6 +12,13 @@ export type Performance = {
 // 네이버 인물정보(본인/대리인 관리) 및 본인 제출 참가신청서 등 공개된 자료를 바탕으로 정리했습니다.
 const PERFORMANCES_RAW: Performance[] = [
   {
+    id: "2026-10-24-taste-of-classic",
+    date: "2026.10.24",
+    title: "튀김소보체 콘서트 〈Taste of Classic〉",
+    venue: "대전예술의전당 아트홀",
+    note: "튀김소보체 2nd 앨범 〈CLASSIC RE:BORN〉 발매기념 공연",
+  },
+  {
     id: "2026-dongyoya-2",
     date: "2026.09.05",
     title: "소프라노 지정윤 리사이틀 〈동요야, 성악이랑 놀자Ⅱ〉",
@@ -329,6 +336,14 @@ const PERFORMANCES_RAW: Performance[] = [
   },
 ];
 
-export const performances = [...PERFORMANCES_RAW].sort(
-  (a, b) => dateSortKey(b.date) - dateSortKey(a.date),
+// 배포 시점을 기준으로 아직 열리지 않은 공연에 '예정' 표시를 붙인다.
+const now = new Date();
+const todayKey = Number(
+  `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, "0")}${String(
+    now.getDate(),
+  ).padStart(2, "0")}`,
 );
+
+export const performances = [...PERFORMANCES_RAW]
+  .map((item) => ({ ...item, upcoming: dateSortKey(item.date) > todayKey }))
+  .sort((a, b) => dateSortKey(b.date) - dateSortKey(a.date));

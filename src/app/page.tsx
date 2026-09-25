@@ -103,6 +103,16 @@ const MENU = [
   },
 ];
 
+// 공연이 끝나면 다음 배포 때 배너가 자동으로 사라진다.
+const UPCOMING = {
+  href: "/soborche",
+  title: "튀김소보체 콘서트 〈Taste of Classic〉",
+  detail: "2026.10.24(토) 오후 7시 · 대전예술의전당 아트홀",
+  hideAfter: new Date("2026-10-25T00:00:00+09:00").getTime(),
+};
+
+const showUpcoming = Date.now() < UPCOMING.hideAfter;
+
 export default function Home() {
   return (
     <div>
@@ -132,15 +142,52 @@ export default function Home() {
           <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-muted sm:leading-8 sm:text-base">
             무대 위에서는 노래로 위로를 전하고, 무대 아래에서는 아이들과
             함께 노래하며 자라나는 목소리를 지휘합니다.
-            <br />
-            성악가 지정윤은 클래식과 대중의 경계를 넘나들며, 노래로 사람과
-            사람을 잇는 음악가입니다.
+            <span className="hidden sm:inline">
+              <br />
+              성악가 지정윤은 클래식과 대중의 경계를 넘나들며, 노래로 사람과
+              사람을 잇는 음악가입니다.
+            </span>
           </p>
         </div>
       </section>
 
+      {showUpcoming && (
+        <section className="mx-auto max-w-4xl px-6 pt-1 sm:pt-4">
+          <Link
+            href={UPCOMING.href}
+            className="flex items-center gap-3 rounded-2xl border border-accent/40 bg-accent-soft px-4 py-3 transition-colors hover:border-accent sm:px-5"
+          >
+            <span className="min-w-0 flex-1">
+              <span className="inline-block rounded-full border border-accent/50 px-2.5 py-0.5 text-[10px] tracking-[0.2em] text-accent">
+                공연 안내
+              </span>
+              <span className="mt-2 block text-sm font-bold leading-snug text-foreground">
+                {UPCOMING.title}
+              </span>
+              <span className="mt-1 block text-xs leading-5 text-muted">
+                {UPCOMING.detail}
+              </span>
+            </span>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              className="h-4 w-4 shrink-0 text-accent"
+              aria-hidden="true"
+            >
+              <path
+                d="M9 6l6 6-6 6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+        </section>
+      )}
+
       {/* Menu grid */}
-      <section className="mx-auto max-w-4xl px-6 pt-2 pb-10 sm:pt-6">
+      <section className="mx-auto max-w-4xl px-6 pt-4 pb-10 sm:pt-6">
         <div className="grid grid-cols-3 gap-2.5 sm:gap-4">
           {MENU.map((item) => (
             <Link

@@ -292,11 +292,7 @@ export default function SoborchePage() {
         </div>
 
         <div className="mt-10">
-          <ImageGallery
-            images={GALLERY}
-            alt="튀김소보체 공연 사진"
-            layout="flow"
-          />
+          <ImageGallery images={GALLERY} alt="튀김소보체 공연 사진" />
         </div>
 
         <div className="mt-10">

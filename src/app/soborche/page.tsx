@@ -27,18 +27,23 @@ const ALBUMS: {
   title: string;
   releasedAt: string;
   tracks: string;
+  melonUrl: string;
 }[] = [
   {
     order: "2nd",
     title: "CLASSIC RE:BORN",
     releasedAt: "2026. 08. 27",
     tracks: "오늘을 위한 건배, 라크리모사",
+    melonUrl:
+      "https://www.melon.com/search/total/index.htm?q=%ED%8A%80%EA%B9%80%EC%86%8C%EB%B3%B4%EC%B2%B4%20CLASSIC%20RE%3ABORN",
   },
   {
     order: "1st",
     title: "Flying Fry",
     releasedAt: "2024. 10. 25",
     tracks: "Flying Fry, Wake up",
+    melonUrl:
+      "https://www.melon.com/search/total/index.htm?q=%ED%8A%80%EA%B9%80%EC%86%8C%EB%B3%B4%EC%B2%B4%20Flying%20Fry",
   },
 ];
 
@@ -239,52 +244,80 @@ export default function SoborchePage() {
                 <p className="mt-2 text-sm text-muted">
                   수록곡 {album.tracks}
                 </p>
+                <a
+                  href={album.melonUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-1.5 text-xs tracking-wide text-accent transition-colors hover:bg-accent-soft"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    className="h-3.5 w-3.5"
+                    aria-hidden="true"
+                  >
+                    <circle cx="7" cy="17.5" r="2.5" />
+                    <circle cx="17" cy="15.5" r="2.5" />
+                    <path d="M9.5 17.5V6l10-2v11.5" strokeLinejoin="round" />
+                  </svg>
+                  <span>멜론에서 듣기</span>
+                </a>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <span className="text-xs tracking-[0.25em] text-accent">
+        <div className="mt-8">
+          <p className="text-xs tracking-[0.25em] text-accent">
             튀김소보체 채널
-          </span>
-          <a
-            href="https://www.instagram.com/fried_sovoce_official"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-2 text-sm tracking-wide text-accent transition-colors hover:bg-accent-soft"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              className="h-4 w-4"
-              aria-hidden="true"
+          </p>
+          <div className="mt-3 flex flex-wrap gap-3">
+            <a
+              href="https://www.instagram.com/fried_sovoce_official"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-2 text-sm tracking-wide text-accent transition-colors hover:bg-accent-soft"
             >
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-            </svg>
-            <span>Instagram</span>
-          </a>
-          <a
-            href="https://youtube.com/@fried_sovoce"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-2 text-sm tracking-wide text-accent transition-colors hover:bg-accent-soft"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="h-4 w-4"
-              aria-hidden="true"
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                className="h-4 w-4"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle
+                  cx="17.2"
+                  cy="6.8"
+                  r="1"
+                  fill="currentColor"
+                  stroke="none"
+                />
+              </svg>
+              <span>Instagram</span>
+            </a>
+            <a
+              href="https://youtube.com/@fried_sovoce"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-2 text-sm tracking-wide text-accent transition-colors hover:bg-accent-soft"
             >
-              <path d="M22 12s0-3.2-.4-4.7c-.2-.9-.9-1.6-1.8-1.8C18 5 12 5 12 5s-6 0-7.8.5c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.7c.2.9.9 1.6 1.8 1.8C6 19 12 19 12 19s6 0 7.8-.5c.9-.2 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7z" />
-              <path d="M10 9.5v5l4.5-2.5z" fill="var(--background)" />
-            </svg>
-            <span>YouTube</span>
-          </a>
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-4 w-4"
+                aria-hidden="true"
+              >
+                <path d="M22 12s0-3.2-.4-4.7c-.2-.9-.9-1.6-1.8-1.8C18 5 12 5 12 5s-6 0-7.8.5c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.7c.2.9.9 1.6 1.8 1.8C6 19 12 19 12 19s6 0 7.8-.5c.9-.2 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7z" />
+                <path d="M10 9.5v5l4.5-2.5z" fill="var(--background)" />
+              </svg>
+              <span>YouTube</span>
+            </a>
+          </div>
         </div>
 
         <div className="mt-10">

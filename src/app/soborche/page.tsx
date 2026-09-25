@@ -136,7 +136,7 @@ export default function SoborchePage() {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
-                  href="https://tickets.interpark.com"
+                  href="https://nol.yanolja.com/ticket/products/26013015"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold tracking-wide text-background transition-opacity hover:opacity-90"

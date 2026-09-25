@@ -34,16 +34,14 @@ const ALBUMS: {
     title: "CLASSIC RE:BORN",
     releasedAt: "2026. 08. 27",
     tracks: "오늘을 위한 건배, 라크리모사",
-    melonUrl:
-      "https://www.melon.com/search/total/index.htm?q=%ED%8A%80%EA%B9%80%EC%86%8C%EB%B3%B4%EC%B2%B4%20CLASSIC%20RE%3ABORN",
+    melonUrl: "https://www.melon.com/album/detail.htm?albumId=14487834",
   },
   {
     order: "1st",
     title: "Flying Fry",
     releasedAt: "2024. 10. 25",
     tracks: "Flying Fry, Wake up",
-    melonUrl:
-      "https://www.melon.com/search/total/index.htm?q=%ED%8A%80%EA%B9%80%EC%86%8C%EB%B3%B4%EC%B2%B4%20Flying%20Fry",
+    melonUrl: "https://www.melon.com/album/detail.htm?albumId=11625370",
   },
 ];
 

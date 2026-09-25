@@ -9,110 +9,51 @@ export type GalleryImage = {
   height: number;
 };
 
-type Group =
-  | { type: "landscape"; img: GalleryImage; index: number }
-  | { type: "portraits"; items: { img: GalleryImage; index: number }[] };
-
-function groupForFlow(images: GalleryImage[]): Group[] {
-  const groups: Group[] = [];
-  let buffer: { img: GalleryImage; index: number }[] = [];
-
-  images.forEach((img, index) => {
-    const isLandscape = img.width / img.height > 1.15;
-    if (isLandscape) {
-      if (buffer.length) {
-        groups.push({ type: "portraits", items: buffer });
-        buffer = [];
-      }
-      groups.push({ type: "landscape", img, index });
-    } else {
-      buffer.push({ img, index });
-    }
-  });
-
-  if (buffer.length) groups.push({ type: "portraits", items: buffer });
-  return groups;
-}
-
-function Thumb({
-  img,
-  alt,
-  onClick,
-}: {
-  img: GalleryImage;
-  alt: string;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label="사진 크게 보기"
-      style={{ aspectRatio: `${img.width} / ${img.height}` }}
-      className="relative w-full overflow-hidden rounded-xl border border-line transition-opacity hover:opacity-90"
-    >
-      <Image src={img.src} alt={alt} fill className="object-cover" />
-    </button>
-  );
-}
+const PREVIEW_COUNT = 6;
 
 export default function ImageGallery({
   images,
   alt,
-  layout = "grid",
 }: {
   images: GalleryImage[];
   alt: string;
-  layout?: "grid" | "flow";
 }) {
   const [selected, setSelected] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState(false);
+
+  const visible = expanded ? images : images.slice(0, PREVIEW_COUNT);
+  const hiddenCount = images.length - PREVIEW_COUNT;
 
   return (
     <>
-      {layout === "flow" ? (
-        <div className="space-y-3">
-          {groupForFlow(images).map((group, gi) =>
-            group.type === "landscape" ? (
-              <Thumb
-                key={group.img.src}
-                img={group.img}
-                alt={alt}
-                onClick={() => setSelected(group.index)}
-              />
-            ) : (
-              <div key={gi} className="grid grid-cols-2 gap-3">
-                {group.items.map(({ img, index }, itemIndex) => {
-                  const isLastOdd =
-                    group.items.length % 2 === 1 &&
-                    itemIndex === group.items.length - 1;
-                  return (
-                    <div
-                      key={img.src}
-                      className={isLastOdd ? "col-span-2" : undefined}
-                    >
-                      <Thumb
-                        img={img}
-                        alt={alt}
-                        onClick={() => setSelected(index)}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            ),
-          )}
-        </div>
-      ) : (
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {images.map((img, i) => (
-            <Thumb
-              key={img.src}
-              img={img}
+      <div className="grid grid-cols-3 gap-2 sm:gap-3">
+        {visible.map((img, i) => (
+          <button
+            key={img.src}
+            type="button"
+            onClick={() => setSelected(i)}
+            aria-label="사진 크게 보기"
+            className="relative aspect-square w-full overflow-hidden rounded-xl border border-line transition-opacity hover:opacity-90"
+          >
+            <Image
+              src={img.src}
               alt={alt}
-              onClick={() => setSelected(i)}
+              fill
+              sizes="(max-width: 640px) 33vw, 240px"
+              className="object-cover"
             />
-          ))}
-        </div>
+          </button>
+        ))}
+      </div>
+
+      {hiddenCount > 0 && (
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          className="mx-auto mt-4 flex items-center gap-2 rounded-full border border-accent/40 px-5 py-2 text-xs tracking-wide text-accent transition-colors hover:bg-accent-soft"
+        >
+          {expanded ? "사진 접기" : `사진 ${hiddenCount}장 더보기`}
+        </button>
       )}
 
       {selected !== null && (

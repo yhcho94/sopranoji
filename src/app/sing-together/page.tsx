@@ -14,9 +14,11 @@ export default function SingTogetherPage() {
   return (
     <div>
       <PageHero
+        src="/images/sing-together-hero.jpg"
+        alt="싱투게더콰이어 공연 무대"
         eyebrow="SING TOGETHER CHOIR"
         title="싱투게더콰이어"
-        alt="싱투게더콰이어"
+        imagePosition="object-center"
       />
 
       <div className="mx-auto max-w-3xl px-6 pt-6 pb-16">
@@ -54,10 +56,6 @@ export default function SingTogetherPage() {
           </div>
         </div>
 
-        <p className="mt-12 rounded-xl border border-dashed border-line p-5 text-xs leading-6 text-muted/80">
-          ※ 대표 이미지는 추후 업데이트될 예정입니다. 싱투게더콰이어 관련
-          추가 정보나 사진을 보내주시면 반영하겠습니다.
-        </p>
       </div>
     </div>
   );

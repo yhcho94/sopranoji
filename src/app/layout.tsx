@@ -3,6 +3,7 @@ import { Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FloatingContact from "@/components/FloatingContact";
 
 const notoSansKR = Noto_Sans_KR({
   variable: "--font-noto-sans-kr",
@@ -114,6 +115,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <Header />
         <main className="flex-1 pt-16 pb-14">{children}</main>
+        <FloatingContact />
         <Footer />
       </body>
     </html>

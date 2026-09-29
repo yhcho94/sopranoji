@@ -8,7 +8,7 @@ export default function FloatingContact() {
         href={`tel:${PHONE}`}
         aria-label="전화 문의"
         title="전화 문의"
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-background shadow-lg shadow-black/50 transition-transform hover:scale-105 sm:h-13 sm:w-13"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FEE500] text-[#08070a] shadow-lg shadow-black/50 transition-transform hover:scale-105 sm:h-13 sm:w-13"
       >
         <svg
           viewBox="0 0 24 24"

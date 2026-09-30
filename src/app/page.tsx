@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactionButton from "@/components/ReactionButton";
 import InstallAppButton from "@/components/InstallAppButton";
+import { performances } from "@/data/performances";
 
 const MENU = [
   {
@@ -103,26 +104,35 @@ const MENU = [
   },
 ];
 
-// 가장 가까운 공연을 배너에 띄우고, 끝난 공연은 다음 배포 때 자동으로 빠진다.
-const UPCOMING_EVENTS = [
-  {
-    href: "/vocalist",
-    title: "세종거리예술가 콘서트 × 세종한글축제",
-    detail: "2026.10.9(금)·10(토) 오후 1시 · 지정윤 팝페라 무대",
-    hideAfter: new Date("2026-10-11T00:00:00+09:00").getTime(),
-  },
-  {
-    href: "/soborche",
-    title: "튀김소보체 콘서트 〈Taste of Classic〉",
-    detail: "2026.10.24(토) 오후 7시 · 대전예술의전당 아트홀",
-    hideAfter: new Date("2026-10-25T00:00:00+09:00").getTime(),
-  },
-];
+// 공연 이력에서 '예정'으로 계산된 공연만 가져와 날짜순으로 안내한다.
+// 같은 공연이 여러 날 열리면 한 줄로 합친다.
+const UPCOMING = performances
+  .filter((item) => item.upcoming)
+  .slice()
+  .reverse()
+  .reduce<{ title: string; dates: string[]; detail: string; href: string }[]>(
+    (acc, item) => {
+      const last = acc[acc.length - 1];
+      if (last && last.title === item.title) {
+        last.dates.push(item.date);
+        return acc;
+      }
+      acc.push({
+        title: item.title,
+        dates: [item.date],
+        detail: [item.venue, item.note].filter(Boolean).join(" · "),
+        href: item.href ?? "/vocalist",
+      });
+      return acc;
+    },
+    [],
+  );
 
-const now = Date.now();
-const UPCOMING = UPCOMING_EVENTS.filter((e) => now < e.hideAfter).sort(
-  (a, b) => a.hideAfter - b.hideAfter,
-)[0];
+function formatDates(dates: string[]) {
+  return dates
+    .map((date, i) => (i === 0 ? date : date.slice(5)))
+    .join(" · ");
+}
 
 export default function Home() {
   return (
@@ -162,38 +172,48 @@ export default function Home() {
         </div>
       </section>
 
-      {UPCOMING && (
+      {UPCOMING.length > 0 && (
         <section className="mx-auto max-w-4xl px-6 pt-1 sm:pt-4">
-          <Link
-            href={UPCOMING.href}
-            className="flex items-center gap-3 rounded-2xl border border-accent/40 bg-accent-soft px-4 py-3 transition-colors hover:border-accent sm:px-5"
-          >
-            <span className="min-w-0 flex-1">
-              <span className="inline-block rounded-full border border-accent/50 px-2.5 py-0.5 text-[10px] tracking-[0.2em] text-accent">
-                공연 안내
-              </span>
-              <span className="mt-2 block text-sm font-bold leading-snug text-foreground">
-                {UPCOMING.title}
-              </span>
-              <span className="mt-1 block text-xs leading-5 text-muted">
-                {UPCOMING.detail}
-              </span>
-            </span>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              className="h-4 w-4 shrink-0 text-accent"
-              aria-hidden="true"
-            >
-              <path
-                d="M9 6l6 6-6 6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
+          <div className="overflow-hidden rounded-2xl border border-accent/40 bg-accent-soft">
+            <p className="border-b border-accent/20 px-4 py-2 text-[10px] tracking-[0.25em] text-accent sm:px-5">
+              다가오는 공연
+            </p>
+            <div className="divide-y divide-accent/15">
+              {UPCOMING.map((event) => (
+                <Link
+                  key={event.title}
+                  href={event.href}
+                  className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-accent/10 sm:px-5"
+                >
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-xs text-accent">
+                      {formatDates(event.dates)}
+                    </span>
+                    <span className="mt-1 block text-sm font-bold leading-snug text-foreground">
+                      {event.title}
+                    </span>
+                    <span className="mt-0.5 block truncate text-xs text-muted">
+                      {event.detail}
+                    </span>
+                  </span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    className="h-4 w-4 shrink-0 text-accent"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9 6l6 6-6 6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              ))}
+            </div>
+          </div>
         </section>
       )}
 

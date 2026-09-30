@@ -90,7 +90,8 @@ export default function VocalistPage() {
             <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
               10월 9일(금)·10일(토) 이틀 모두 <b className="text-foreground">
                 13:00~13:40
-              </b>{" "}
+              </b>
+              , <b className="text-foreground">세종호수공원 수상무대섬</b>에서
               지정윤이 팝페라 무대로 관객을 맞이합니다. 세종특별자치시와
               세종시문화관광재단이 함께하는 세종한글축제 연계 공연입니다.
             </p>

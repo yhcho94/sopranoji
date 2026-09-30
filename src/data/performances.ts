@@ -7,6 +7,8 @@ export type Performance = {
   venue: string;
   note?: string;
   upcoming?: boolean;
+  /** 홈 화면 공연 안내에서 이동할 사이트 내 경로 */
+  href?: string;
 };
 
 // 네이버 인물정보(본인/대리인 관리) 및 본인 제출 참가신청서 등 공개된 자료를 바탕으로 정리했습니다.
@@ -17,6 +19,7 @@ const PERFORMANCES_RAW: Performance[] = [
     title: "세종거리예술가 콘서트 × 세종한글축제",
     venue: "세종특별자치시",
     note: "13:00~13:40 지정윤 무대 (팝페라)",
+    href: "/vocalist",
   },
   {
     id: "2026-10-09-street-artist",
@@ -24,6 +27,7 @@ const PERFORMANCES_RAW: Performance[] = [
     title: "세종거리예술가 콘서트 × 세종한글축제",
     venue: "세종특별자치시",
     note: "13:00~13:40 지정윤 무대 (팝페라)",
+    href: "/vocalist",
   },
   {
     id: "2026-10-24-taste-of-classic",
@@ -31,6 +35,7 @@ const PERFORMANCES_RAW: Performance[] = [
     title: "튀김소보체 콘서트 〈Taste of Classic〉",
     venue: "대전예술의전당 아트홀",
     note: "튀김소보체 2nd 앨범 〈CLASSIC RE:BORN〉 발매기념 공연",
+    href: "/soborche",
   },
   {
     id: "2026-dongyoya-2",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import ImageGallery from "@/components/ImageGallery";
 import PastPerformances from "@/components/PastPerformances";
@@ -17,6 +18,21 @@ const recentPerformances = performances.filter(
 const pastPerformances = performances.filter(
   (item) => Number(item.date.slice(0, 4)) <= PAST_YEAR_CUTOFF,
 );
+
+const CONCERT_POSTERS = [
+  {
+    src: "/images/street-artist-concert/schedule.jpg",
+    alt: "세종거리예술가 콘서트 공연 일정표",
+  },
+  {
+    src: "/images/street-artist-concert/lineup-1009.jpg",
+    alt: "세종거리예술가 콘서트 10월 9일 라인업",
+  },
+  {
+    src: "/images/street-artist-concert/lineup-1010.jpg",
+    alt: "세종거리예술가 콘서트 10월 10일 라인업",
+  },
+];
 
 const GALLERY = [
   { src: "/images/vocalist-gallery/1.jpg", width: 1280, height: 1600 },
@@ -58,6 +74,51 @@ export default function VocalistPage() {
         <div className="mt-10">
           <ImageGallery images={GALLERY} alt="소프라노 지정윤 공연 사진" />
         </div>
+
+        <section className="mt-14 overflow-hidden rounded-2xl border border-accent/40 bg-background-elevated">
+          <p className="border-b border-line bg-accent-soft px-6 py-3 text-center text-xs tracking-[0.3em] text-accent">
+            UPCOMING
+          </p>
+
+          <div className="p-6 sm:p-7">
+            <p className="text-xs tracking-widest text-accent">
+              2026 세종한글축제 연계
+            </p>
+            <h2 className="mt-2 font-display text-2xl leading-snug sm:text-3xl">
+              세종거리예술가 콘서트
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
+              10월 9일(금)·10일(토) 이틀 모두 <b className="text-foreground">
+                13:00~13:40
+              </b>{" "}
+              지정윤이 팝페라 무대로 관객을 맞이합니다. 세종특별자치시와
+              세종시문화관광재단이 함께하는 세종한글축제 연계 공연입니다.
+            </p>
+
+            <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
+              {CONCERT_POSTERS.map((poster) => (
+                <a
+                  key={poster.src}
+                  href={poster.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="overflow-hidden rounded-xl border border-line transition-opacity hover:opacity-90"
+                >
+                  <Image
+                    src={poster.src}
+                    alt={poster.alt}
+                    width={1200}
+                    height={1500}
+                    className="h-auto w-full"
+                  />
+                </a>
+              ))}
+            </div>
+            <p className="mt-3 text-xs text-muted/80">
+              포스터를 누르면 크게 볼 수 있습니다.
+            </p>
+          </div>
+        </section>
 
         <div className="mt-14">
           <p className="text-xs tracking-[0.4em] text-accent">PERFORMANCES</p>

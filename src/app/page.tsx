@@ -103,15 +103,26 @@ const MENU = [
   },
 ];
 
-// 공연이 끝나면 다음 배포 때 배너가 자동으로 사라진다.
-const UPCOMING = {
-  href: "/soborche",
-  title: "튀김소보체 콘서트 〈Taste of Classic〉",
-  detail: "2026.10.24(토) 오후 7시 · 대전예술의전당 아트홀",
-  hideAfter: new Date("2026-10-25T00:00:00+09:00").getTime(),
-};
+// 가장 가까운 공연을 배너에 띄우고, 끝난 공연은 다음 배포 때 자동으로 빠진다.
+const UPCOMING_EVENTS = [
+  {
+    href: "/vocalist",
+    title: "세종거리예술가 콘서트 × 세종한글축제",
+    detail: "2026.10.9(금)·10(토) 오후 1시 · 지정윤 팝페라 무대",
+    hideAfter: new Date("2026-10-11T00:00:00+09:00").getTime(),
+  },
+  {
+    href: "/soborche",
+    title: "튀김소보체 콘서트 〈Taste of Classic〉",
+    detail: "2026.10.24(토) 오후 7시 · 대전예술의전당 아트홀",
+    hideAfter: new Date("2026-10-25T00:00:00+09:00").getTime(),
+  },
+];
 
-const showUpcoming = Date.now() < UPCOMING.hideAfter;
+const now = Date.now();
+const UPCOMING = UPCOMING_EVENTS.filter((e) => now < e.hideAfter).sort(
+  (a, b) => a.hideAfter - b.hideAfter,
+)[0];
 
 export default function Home() {
   return (
@@ -151,7 +162,7 @@ export default function Home() {
         </div>
       </section>
 
-      {showUpcoming && (
+      {UPCOMING && (
         <section className="mx-auto max-w-4xl px-6 pt-1 sm:pt-4">
           <Link
             href={UPCOMING.href}

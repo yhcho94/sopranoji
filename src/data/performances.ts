@@ -12,6 +12,20 @@ export type Performance = {
 // 네이버 인물정보(본인/대리인 관리) 및 본인 제출 참가신청서 등 공개된 자료를 바탕으로 정리했습니다.
 const PERFORMANCES_RAW: Performance[] = [
   {
+    id: "2026-10-10-street-artist",
+    date: "2026.10.10",
+    title: "세종거리예술가 콘서트 × 세종한글축제",
+    venue: "세종특별자치시",
+    note: "13:00~13:40 지정윤 무대 (팝페라)",
+  },
+  {
+    id: "2026-10-09-street-artist",
+    date: "2026.10.09",
+    title: "세종거리예술가 콘서트 × 세종한글축제",
+    venue: "세종특별자치시",
+    note: "13:00~13:40 지정윤 무대 (팝페라)",
+  },
+  {
     id: "2026-10-24-taste-of-classic",
     date: "2026.10.24",
     title: "튀김소보체 콘서트 〈Taste of Classic〉",

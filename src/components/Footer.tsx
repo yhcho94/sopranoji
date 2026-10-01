@@ -35,7 +35,7 @@ export default function Footer() {
     <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-background/90 px-6 py-2 backdrop-blur-md">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center sm:justify-between">
         <span className="order-3 w-full text-[11px] text-muted/80 sm:order-1 sm:w-auto sm:text-left">
-          © {new Date().getFullYear()} RyanDaddy. All rights reserved.
+          © {new Date().getFullYear()} Golden Ryan Lab. All rights reserved.
         </span>
 
         <div className="order-1 flex items-center gap-3 sm:order-2">

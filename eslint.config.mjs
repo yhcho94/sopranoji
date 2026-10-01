@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // 홍보 영상 제작용 독립 스크립트
+    "promo-video/**",
   ]),
 ]);
 

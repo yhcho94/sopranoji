@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>소프라노 지정윤 PR 영상</title>
+<style>
+  :root {
+    --bg: #08070a;
+    --fg: #f4efe4;
+    --muted: #a49c8d;
+    --accent: #c9a24b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+  body { color: var(--fg); font-family: "Noto Sans KR", sans-serif; word-break: keep-all; }
+  .serif { font-family: "Noto Serif KR", serif; }
+  .gold {
+    background: linear-gradient(120deg, #e9cf8a 0%, #c9a24b 45%, #8a6a2c 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+  .scene { position: absolute; inset: 0; opacity: 0; overflow: hidden; }
+  .photo { position: absolute; inset: 0; background-size: cover; background-position: center; will-change: transform; }
+  .shade { position: absolute; inset: 0; }
+  .eyebrow { font-size: 30px; letter-spacing: 0.5em; color: var(--accent); }
+  .line { height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+  .anim { will-change: transform, opacity; }
+  .caption { position: absolute; left: 80px; right: 80px; }
+  .h1 { font-size: 84px; line-height: 1.25; font-weight: 700; }
+  .h2 { font-size: 60px; line-height: 1.35; font-weight: 600; }
+  .body { font-size: 36px; line-height: 1.6; color: #e6dfd1; }
+  .chip {
+    display: inline-block; border: 2px solid rgba(201,162,75,.6); color: var(--accent);
+    padding: 10px 28px; border-radius: 999px; font-size: 30px; letter-spacing: .15em;
+  }
+  .grid { position: absolute; left: 60px; right: 60px; top: 420px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .tile { position: relative; height: 560px; border-radius: 28px; overflow: hidden; border: 2px solid rgba(201,162,75,.35); }
+  .tile .photo { inset: 0; }
+  .tile .label {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 70px 28px 26px;
+    background: linear-gradient(transparent, rgba(8,7,10,.92));
+    font-size: 38px; font-weight: 700;
+  }
+  .tile .label small { display: block; font-size: 24px; letter-spacing: .3em; color: var(--accent); font-weight: 400; margin-bottom: 6px; }
+  .card {
+    border: 2px solid rgba(201,162,75,.45); background: rgba(16,14,19,.82);
+    border-radius: 32px; padding: 44px 48px; margin-top: 36px;
+  }
+  .card .date { color: var(--accent); font-size: 36px; font-weight: 500; letter-spacing: .05em; }
+  .card .title { font-size: 46px; font-weight: 700; line-height: 1.35; margin-top: 12px; }
+  .card .venue { font-size: 32px; color: var(--muted); margin-top: 10px; }
+  .vignette { position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%); }
+  #flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- S1 인트로 -->
+  <div class="scene" id="s1">
+    <div class="photo" id="s1p" style="background-image:url(../public/images/profile-hero.jpg); background-position: 30% top;"></div>
+    <div class="shade" style="background: linear-gradient(to bottom, rgba(8,7,10,.15) 0%, rgba(8,7,10,.2) 40%, rgba(8,7,10,.92) 68%, #08070a 100%);"></div>
+    <div class="caption" style="top: 1300px; text-align:center;">
+      <div class="eyebrow anim" id="s1e">SOPRANO · CONDUCTOR</div>
+      <div class="line anim" id="s1l" style="margin: 34px auto; width: 520px;"></div>
+      <div class="serif gold anim" id="s1t" style="font-size: 180px; font-weight: 700; line-height: 1.1;">지정윤</div>
+      <div class="serif anim" id="s1s" style="font-size: 40px; letter-spacing: .45em; color: var(--muted); margin-top: 22px;">JI JOUNGYUN</div>
+    </div>
+  </div>
+
+  <!-- S2 성악가 -->
+  <div class="scene" id="s2">
+    <div class="photo" id="s2p" style="background-image:url(../public/images/vocalist-gallery/6.jpg); background-position: 70% center;"></div>
+    <div class="shade" style="background: linear-gradient(to bottom, rgba(8,7,10,.7) 0%, transparent 30%, transparent 55%, rgba(8,7,10,.95) 85%);"></div>
+    <div class="caption" style="top: 150px;">
+      <div class="eyebrow anim" id="s2e">VOCALIST</div>
+    </div>
+    <div class="caption" style="top: 1480px;">
+      <div class="serif h2 anim" id="s2a">무대 위에서는</div>
+      <div class="serif h1 gold anim" id="s2b">노래로 위로를 전합니다</div>
+    </div>
+  </div>
+
+  <!-- S3 학력 -->
+  <div class="scene" id="s3">
+    <div class="photo" id="s3p" style="background-image:url(../public/images/vocalist-gallery/5.jpg); background-position: center top;"></div>
+    <div class="shade" style="background: linear-gradient(to bottom, transparent 40%, rgba(8,7,10,.95) 78%);"></div>
+    <div class="caption" style="top: 1340px;">
+      <div class="body anim" id="s3a">숙명여자대학교 음악대학 성악과 석사</div>
+      <div class="line anim" id="s3l" style="margin: 26px 0; width: 100%;"></div>
+      <div class="serif h2 anim" id="s3b">이탈리아 페스카라 시립음악원</div>
+      <div class="serif h2 gold anim" id="s3c">최고연주자과정</div>
+    </div>
+  </div>
+
+  <!-- S4 지휘자 -->
+  <div class="scene" id="s4">
+    <div class="photo" id="s4p" style="background-image:url(../public/images/conductor-gallery/2.jpg);"></div>
+    <div class="photo" id="s4q" style="background-image:url(../public/images/conductor-gallery/1.jpg); background-position: 40% center; opacity: 0;"></div>
+    <div class="shade" style="background: linear-gradient(to bottom, rgba(8,7,10,.75) 0%, transparent 25%, transparent 50%, rgba(8,7,10,.95) 80%);"></div>
+    <div class="caption" style="top: 150px;"><div class="eyebrow anim" id="s4e">CONDUCTOR</div></div>
+    <div class="caption" style="top: 1400px;">
+      <div class="serif h2 anim" id="s4a">세종리틀싱어즈</div>
+      <div class="serif h1 gold anim" id="s4b">단장 · 상임지휘자</div>
+      <div class="body anim" id="s4c" style="margin-top: 22px; color: var(--muted);">아이들과 함께 노래하며 자라나는 목소리를 지휘합니다</div>
+    </div>
+  </div>
+
+  <!-- S5 수상 -->
+  <div class="scene" id="s5">
+    <div class="photo" id="s5p" style="background-image:url(../public/images/conductor-gallery/8.jpg);"></div>
+    <div class="shade" style="background: rgba(8,7,10,.72);"></div>
+    <div class="caption" style="top: 640px; text-align: center;">
+      <div class="eyebrow anim" id="s5e">AWARDS</div>
+      <div class="serif anim gold" id="s5a" style="font-size: 76px; font-weight: 700; line-height: 1.25; margin-top: 40px;">World Choir Games</div>
+      <div class="serif anim" id="s5b" style="font-size: 48px; margin-top: 16px;">세계합창대회 Silver Diploma</div>
+      <div class="line anim" id="s5l" style="margin: 56px auto; width: 70%;"></div>
+      <div class="body anim" id="s5c">세종시 예술인상</div>
+      <div class="body anim" id="s5d">세종시 교육감상 · 지도자상 다수</div>
+    </div>
+  </div>
+
+  <!-- S6 튀김소보체 몽타주 -->
+  <div class="scene" id="s6">
+    <div class="photo m" style="background-image:url(../public/images/soborche-gallery/3.jpg);"></div>
+    <div class="photo m" style="background-image:url(../public/images/soborche-gallery/5.jpg); background-position: 40% center;"></div>
+    <div class="photo m" style="background-image:url(../public/images/soborche-gallery/11.jpg);"></div>
+    <div class="photo m" style="background-image:url(../public/images/soborche-gallery/4.jpg);"></div>
+    <div class="shade" style="background: linear-gradient(to bottom, rgba(8,7,10,.75) 0%, transparent 25%, transparent 55%, rgba(8,7,10,.95) 85%);"></div>
+    <div class="caption" style="top: 150px;"><div class="eyebrow anim" id="s6e">CLASSICAL SHOW CHOIR</div></div>
+    <div class="caption" style="top: 1460px;">
+      <div class="serif h2 anim" id="s6a">장르를 넘는 무대</div>
+      <div class="serif h1 gold anim" id="s6b">튀김소보체</div>
+    </div>
+  </div>
+
+  <!-- S7 다양한 활동 그리드 -->
+  <div class="scene" id="s7">
+    <div class="caption" style="top: 200px; text-align:center;">
+      <div class="eyebrow anim" id="s7e">ON STAGE &amp; BEYOND</div>
+      <div class="serif h2 anim" id="s7t" style="margin-top: 24px;">노래로 사람과 사람을 잇다</div>
+    </div>
+    <div class="grid">
+      <div class="tile anim" id="t1"><div class="photo" style="background-image:url(../public/images/vocalist-gallery/2.jpg); background-position: center 20%;"></div><div class="label"><small>VOCALIST</small>성악가</div></div>
+      <div class="tile anim" id="t2"><div class="photo" style="background-image:url(../public/images/conductor-gallery/6.jpg); background-position: 35% center;"></div><div class="label"><small>CONDUCTOR</small>지휘자</div></div>
+      <div class="tile anim" id="t3"><div class="photo" style="background-image:url(../public/images/humanities-lecture-hero.jpg); background-position: 70% center;"></div><div class="label"><small>LECTURE</small>인문학 강사</div></div>
+      <div class="tile anim" id="t4"><div class="photo" style="background-image:url(../public/images/sing-together-hero.jpg);"></div><div class="label"><small>CHOIR</small>싱투게더콰이어</div></div>
+    </div>
+  </div>
+
+  <!-- S8 다가오는 공연 -->
+  <div class="scene" id="s8">
+    <div class="photo" id="s8p" style="background-image:url(../public/images/vocalist-gallery/3.jpg); background-position: 60% center;"></div>
+    <div class="shade" style="background: linear-gradient(to bottom, rgba(8,7,10,.55), rgba(8,7,10,.88) 45%, rgba(8,7,10,.96));"></div>
+    <div class="caption" style="top: 560px;">
+      <div class="eyebrow anim" id="s8e">UPCOMING</div>
+      <div class="serif h1 anim" id="s8t" style="margin-top: 20px;">다가오는 공연</div>
+      <div class="card anim" id="c1">
+        <div class="date">2026.10.09 – 10.10 · 13:00</div>
+        <div class="title">세종거리예술가 콘서트<br />× 세종한글축제</div>
+        <div class="venue">세종호수공원 수상무대섬</div>
+      </div>
+      <div class="card anim" id="c2">
+        <div class="date">2026.10.24</div>
+        <div class="title">튀김소보체 콘서트<br />〈Taste of Classic〉</div>
+        <div class="venue">대전예술의전당 아트홀</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S9 엔딩 -->
+  <div class="scene" id="s9">
+    <div class="photo" id="s9p" style="background-image:url(../public/images/vocalist-gallery/1.jpg); background-position: center 15%;"></div>
+    <div class="shade" style="background: linear-gradient(to bottom, rgba(8,7,10,.1) 0%, rgba(8,7,10,.25) 40%, rgba(8,7,10,.94) 66%, #08070a 100%);"></div>
+    <div class="caption" style="top: 1290px; text-align: center;">
+      <div class="serif anim" id="s9a" style="font-size: 44px; line-height: 1.5; color: #e6dfd1;">클래식과 대중의 경계를 넘나드는 음악가</div>
+      <div class="serif gold anim" id="s9b" style="font-size: 120px; font-weight: 700; margin-top: 20px;">소프라노 지정윤</div>
+      <div class="line anim" id="s9l" style="margin: 36px auto; width: 560px;"></div>
+      <div class="anim" id="s9c"><span class="chip">공연 · 특강 · 협업 섭외 문의</span></div>
+      <div class="anim" id="s9d" style="font-size: 38px; letter-spacing: .08em; margin-top: 30px; color: var(--fg);">sopranoji.vercel.app</div>
+    </div>
+  </div>
+
+  <div class="vignette"></div>
+  <div id="flash"></div>
+</div>
+
+<script>
+  // ---- 타임라인 (초) ----
+  const SCENES = [
+    ["s1", 0.0, 4.2],
+    ["s2", 3.7, 7.4],
+    ["s3", 6.9, 10.6],
+    ["s4", 10.1, 14.2],
+    ["s5", 13.7, 16.8],
+    ["s6", 16.3, 19.9],
+    ["s7", 19.4, 23.2],
+    ["s8", 22.7, 26.4],
+    ["s9", 25.9, 30.0],
+  ];
+  const DURATION = 30.0;
+  const XF = 0.5; // 크로스페이드 길이
+
+  const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+  const ease = (x) => { x = clamp(x); return 1 - Math.pow(1 - x, 3); };
+  const easeIO = (x) => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+  const $ = (id) => document.getElementById(id);
+
+  // 요소를 지정 시각(local)에 아래에서 떠오르게
+  function rise(el, local, start, dur = 0.7, dist = 40) {
+    const p = ease((local - start) / dur);
+    el.style.opacity = p;
+    el.style.transform = `translateY(${(1 - p) * dist}px)`;
+  }
+  function kenburns(el, p, s0, s1, x0 = 0, x1 = 0, y0 = 0, y1 = 0) {
+    const s = s0 + (s1 - s0) * p, x = x0 + (x1 - x0) * p, y = y0 + (y1 - y0) * p;
+    el.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
+  }
+
+  function render(t) {
+    for (const [id, a, b] of SCENES) {
+      const el = $(id);
+      let o = 0;
+      if (t >= a && t <= b) {
+        o = Math.min(a === 0 ? 1 : clamp((t - a) / XF), clamp((b - t) / XF));
+        if (b >= DURATION) o = a <= t ? clamp((t - a) / XF) : 0;
+      }
+      el.style.opacity = o;
+      el.style.display = o > 0 ? "block" : "none";
+    }
+    // 시작 페이드 인 / 마지막 페이드 아웃
+    const master = Math.min(clamp(t / 0.8), clamp((DURATION - t) / 1.0));
+    $("stage").style.opacity = master;
+
+    let L;
+    // S1
+    L = t - 0;
+    kenburns($("s1p"), clamp(L / 4.2), 1.18, 1.05, 0, 0, 0, -30);
+    rise($("s1e"), L, 0.5);
+    { const p = ease((L - 0.8) / 1.0); $("s1l").style.opacity = p; $("s1l").style.transform = `scaleX(${p})`; }
+    { const p = ease((L - 1.0) / 1.2); $("s1t").style.opacity = p; $("s1t").style.transform = `scale(${1.15 - 0.15 * p})`; $("s1t").style.letterSpacing = `${0.3 - 0.3 * p}em`; }
+    rise($("s1s"), L, 1.6);
+
+    // S2
+    L = t - 3.7;
+    kenburns($("s2p"), clamp(L / 3.7), 1.25, 1.08, 40, -40, 0, 0);
+    rise($("s2e"), L, 0.3);
+    rise($("s2a"), L, 0.6);
+    rise($("s2b"), L, 1.0);
+
+    // S3
+    L = t - 6.9;
+    kenburns($("s3p"), clamp(L / 3.7), 1.05, 1.2, 0, 0, 0, 40);
+    rise($("s3a"), L, 0.4);
+    { const p = ease((L - 0.7) / 0.8); $("s3l").style.opacity = p; $("s3l").style.transform = `scaleX(${p})`; $("s3l").style.transformOrigin = "left"; }
+    rise($("s3b"), L, 0.9);
+    rise($("s3c"), L, 1.2);
+
+    // S4 (두 장 교차)
+    L = t - 10.1;
+    kenburns($("s4p"), clamp(L / 4.1), 1.3, 1.12, -60, 40, 0, 0);
+    kenburns($("s4q"), clamp((L - 1.8) / 2.3), 1.2, 1.08, 0, 0, 0, -20);
+    $("s4q").style.opacity = easeIO((L - 1.8) / 0.5);
+    rise($("s4e"), L, 0.3);
+    rise($("s4a"), L, 0.5);
+    rise($("s4b"), L, 0.9);
+    rise($("s4c"), L, 1.4);
+
+    // S5
+    L = t - 13.7;
+    kenburns($("s5p"), clamp(L / 3.1), 1.1, 1.2);
+    rise($("s5e"), L, 0.3);
+    { const p = ease((L - 0.5) / 0.9); $("s5a").style.opacity = p; $("s5a").style.transform = `scale(${1.2 - 0.2 * p})`; }
+    rise($("s5b"), L, 0.9);
+    { const p = ease((L - 1.2) / 0.8); $("s5l").style.opacity = p; $("s5l").style.transform = `scaleX(${p})`; }
+    rise($("s5c"), L, 1.4);
+    rise($("s5d"), L, 1.6);
+
+    // S6 몽타주: 0.9초 간격 컷 + 짧은 플래시
+    L = t - 16.3;
+    const ms = document.querySelectorAll("#s6 .m");
+    const cut = 0.9;
+    ms.forEach((m, i) => {
+      const a = i * cut;
+      const vis = L >= a && (i === ms.length - 1 || L < a + cut);
+      m.style.opacity = vis ? 1 : 0;
+      kenburns(m, clamp((L - a) / (cut + 0.6)), 1.22, 1.08, i % 2 ? 30 : -30, 0, 0, 0);
+    });
+    {
+      let f = 0;
+      for (let i = 1; i < ms.length; i++) { const d = L - i * cut; if (d >= 0 && d < 0.18) f = Math.max(f, 0.35 * (1 - d / 0.18)); }
+      $("flash").style.opacity = t >= 16.3 && t < 19.9 ? f : 0;
+    }
+    rise($("s6e"), L, 0.3);
+    rise($("s6a"), L, 0.6);
+    { const p = ease((L - 1.0) / 1.0); $("s6b").style.opacity = p; $("s6b").style.transform = `scale(${1.2 - 0.2 * p})`; $("s6b").style.transformOrigin = "left center"; }
+
+    // S7 그리드
+    L = t - 19.4;
+    rise($("s7e"), L, 0.2);
+    rise($("s7t"), L, 0.4);
+    ["t1", "t2", "t3", "t4"].forEach((id, i) => {
+      const p = ease((L - 0.6 - i * 0.22) / 0.7);
+      const el = $(id);
+      el.style.opacity = p;
+      el.style.transform = `translateY(${(1 - p) * 80}px) scale(${0.92 + 0.08 * p})`;
+      el.querySelector(".photo").style.transform = `scale(${1.15 - 0.1 * clamp(L / 3.8)})`;
+    });
+
+    // S8 공연
+    L = t - 22.7;
+    kenburns($("s8p"), clamp(L / 3.7), 1.1, 1.2);
+    rise($("s8e"), L, 0.2);
+    rise($("s8t"), L, 0.4);
+    rise($("c1"), L, 0.8, 0.7, 60);
+    rise($("c2"), L, 1.2, 0.7, 60);
+
+    // S9 엔딩
+    L = t - 25.9;
+    kenburns($("s9p"), clamp(L / 4.1), 1.15, 1.03, 0, 0, -20, 0);
+    rise($("s9a"), L, 0.4);
+    { const p = ease((L - 0.7) / 1.1); $("s9b").style.opacity = p; $("s9b").style.letterSpacing = `${0.2 - 0.2 * p}em`; }
+    { const p = ease((L - 1.2) / 0.8); $("s9l").style.opacity = p; $("s9l").style.transform = `scaleX(${p})`; }
+    rise($("s9c"), L, 1.5);
+    rise($("s9d"), L, 1.7);
+  }
+
+  window.render = render;
+  window.DURATION = DURATION;
+  const q = new URLSearchParams(location.search);
+  if (q.has("t")) render(parseFloat(q.get("t")));
+  else {
+    // 브라우저에서 직접 열면 실시간 재생
+    const t0 = performance.now();
+    (function loop() { const t = ((performance.now() - t0) / 1000) % DURATION; render(t); requestAnimationFrame(loop); })();
+  }
+</script>
+</body>
+</html>

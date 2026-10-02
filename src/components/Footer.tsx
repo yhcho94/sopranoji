@@ -1,4 +1,4 @@
-import VisitorBadge from "./VisitorBadge";
+import VisitorCounter from "./VisitorCounter";
 
 const INSTAGRAM_URL = "https://www.instagram.com/jjy1340";
 const YOUTUBE_URL = "https://youtube.com/channel/UCAKsSWLfvD0hgk-aLIKF2SQ";
@@ -148,7 +148,7 @@ export default function Footer() {
         </div>
 
         <div className="order-2 sm:order-3">
-          <VisitorBadge />
+          <VisitorCounter />
         </div>
       </div>
     </footer>

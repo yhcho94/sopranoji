@@ -7,7 +7,7 @@ import VideoGallery from "@/components/VideoGallery";
 export const metadata: Metadata = {
   title: "튀김소보체 | 소프라노 지정윤",
   description:
-    "튀김소보체 2nd 앨범 발매기념 콘서트 〈Taste of Classic〉 2026년 10월 24일(토) 오후 7시 대전예술의전당 아트홀.",
+    "퓨전 클래식 쇼콰이어 튀김소보체 소개와 앨범, 2nd 앨범 발매기념 콘서트 〈Taste of Classic〉 공연 기록.",
 };
 
 // 가나다순
@@ -46,12 +46,9 @@ const ALBUMS: {
 ];
 
 const CONCERT_INFO: { label: string; value: string }[] = [
-  { label: "일시", value: "2026년 10월 24일(토) 오후 7시 · 1일 1회" },
+  { label: "일시", value: "2026년 10월 24일(토) 오후 7시" },
   { label: "장소", value: "대전예술의전당 아트홀" },
-  { label: "티켓", value: "R석 5만원 / S석 3만원 / A석 2만원" },
   { label: "소요시간", value: "약 80분 (인터미션 없음)" },
-  { label: "관람등급", value: "초등학생 이상" },
-  { label: "공연구분", value: "대관공연 · 음악" },
   { label: "주최·주관", value: "튀김소보체" },
   {
     label: "후원",
@@ -90,9 +87,9 @@ export default function SoborchePage() {
       />
 
       <div className="mx-auto max-w-3xl px-6 pt-6 pb-16">
-        <section className="mb-14 overflow-hidden rounded-2xl border border-accent/40 bg-background-elevated">
-          <div className="border-b border-line bg-accent-soft px-6 py-3 text-center text-xs tracking-[0.3em] text-accent">
-            UPCOMING CONCERT
+        <section className="mb-14 overflow-hidden rounded-2xl border border-line bg-background-elevated">
+          <div className="border-b border-line px-6 py-3 text-center text-xs tracking-[0.3em] text-muted/80">
+            CONCERT RECORD
           </div>
 
           <div className="p-6 sm:flex sm:gap-7 sm:p-7">
@@ -134,15 +131,12 @@ export default function SoborchePage() {
                 ))}
               </dl>
 
+              <p className="mt-5 text-sm leading-7 text-muted">
+                2nd 앨범 〈CLASSIC RE:BORN〉 발매를 기념한 공연으로, 예정대로
+                무대를 잘 마쳤습니다.
+              </p>
+
               <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  href="https://nol.yanolja.com/ticket/products/26013015"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold tracking-wide text-background transition-opacity hover:opacity-90"
-                >
-                  NOL티켓 예매하기 →
-                </a>
                 <a
                   href="https://www.daejeon.go.kr/djac"
                   target="_blank"
@@ -152,17 +146,6 @@ export default function SoborchePage() {
                   대전예술의전당
                 </a>
               </div>
-
-              <p className="mt-4 text-xs leading-6 text-muted/80">
-                예매 문의 나무예술기획{" "}
-                <a
-                  href="tel:0424778220"
-                  className="text-accent underline-offset-4 hover:underline"
-                >
-                  042-477-8220
-                </a>
-                {" "}· NOL티켓 1544-1555
-              </p>
             </div>
           </div>
         </section>

@@ -355,14 +355,27 @@ const PERFORMANCES_RAW: Performance[] = [
   },
 ];
 
-// 배포 시점을 기준으로 아직 열리지 않은 공연에 '예정' 표시를 붙인다.
-const now = new Date();
-const todayKey = Number(
-  `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, "0")}${String(
-    now.getDate(),
-  ).padStart(2, "0")}`,
-);
+/** 한국 시간 기준 오늘 날짜를 YYYYMMDD 숫자로 돌려준다. */
+function todayKeyKST() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
 
-export const performances = [...PERFORMANCES_RAW]
-  .map((item) => ({ ...item, upcoming: dateSortKey(item.date) > todayKey }))
-  .sort((a, b) => dateSortKey(b.date) - dateSortKey(a.date));
+  return Number(parts.replaceAll("-", ""));
+}
+
+/**
+ * 호출 시점(한국 시간)을 기준으로 아직 열리지 않은 공연에 '예정' 표시를 붙여
+ * 최신순으로 돌려준다. 공연 당일까지는 '예정'으로 본다.
+ * 페이지가 재생성될 때마다 다시 계산되므로 날짜가 지나면 자동으로 지난 공연이 된다.
+ */
+export function getPerformances(): Performance[] {
+  const todayKey = todayKeyKST();
+
+  return [...PERFORMANCES_RAW]
+    .map((item) => ({ ...item, upcoming: dateSortKey(item.date) >= todayKey }))
+    .sort((a, b) => dateSortKey(b.date) - dateSortKey(a.date));
+}

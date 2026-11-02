@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactionButton from "@/components/ReactionButton";
 import InstallAppButton from "@/components/InstallAppButton";
-import { performances } from "@/data/performances";
+import { getPerformances } from "@/data/performances";
 
 const MENU = [
   {
@@ -104,29 +104,33 @@ const MENU = [
   },
 ];
 
+// 한 시간마다 다시 생성해 날짜가 지난 공연이 '다가오는 공연'에 남지 않게 한다.
+export const revalidate = 3600;
+
 // 공연 이력에서 '예정'으로 계산된 공연만 가져와 날짜순으로 안내한다.
 // 같은 공연이 여러 날 열리면 한 줄로 합친다.
-const UPCOMING = performances
-  .filter((item) => item.upcoming)
-  .slice()
-  .reverse()
-  .reduce<{ title: string; dates: string[]; detail: string; href: string }[]>(
-    (acc, item) => {
-      const last = acc[acc.length - 1];
-      if (last && last.title === item.title) {
-        last.dates.push(item.date);
+function upcomingEvents() {
+  return getPerformances()
+    .filter((item) => item.upcoming)
+    .reverse()
+    .reduce<{ title: string; dates: string[]; detail: string; href: string }[]>(
+      (acc, item) => {
+        const last = acc[acc.length - 1];
+        if (last && last.title === item.title) {
+          last.dates.push(item.date);
+          return acc;
+        }
+        acc.push({
+          title: item.title,
+          dates: [item.date],
+          detail: [item.venue, item.note].filter(Boolean).join(" · "),
+          href: item.href ?? "/vocalist",
+        });
         return acc;
-      }
-      acc.push({
-        title: item.title,
-        dates: [item.date],
-        detail: [item.venue, item.note].filter(Boolean).join(" · "),
-        href: item.href ?? "/vocalist",
-      });
-      return acc;
-    },
-    [],
-  );
+      },
+      [],
+    );
+}
 
 function formatDates(dates: string[]) {
   return dates
@@ -135,6 +139,8 @@ function formatDates(dates: string[]) {
 }
 
 export default function Home() {
+  const upcoming = upcomingEvents();
+
   return (
     <div>
       {/* Hero */}
@@ -172,14 +178,14 @@ export default function Home() {
         </div>
       </section>
 
-      {UPCOMING.length > 0 && (
+      {upcoming.length > 0 && (
         <section className="mx-auto max-w-4xl px-6 pt-1 sm:pt-4">
           <div className="overflow-hidden rounded-2xl border border-accent/40 bg-accent-soft">
             <p className="border-b border-accent/20 px-4 py-2 text-[10px] tracking-[0.25em] text-accent sm:px-5">
               다가오는 공연
             </p>
             <div className="divide-y divide-accent/15">
-              {UPCOMING.map((event) => (
+              {upcoming.map((event) => (
                 <Link
                   key={event.title}
                   href={event.href}

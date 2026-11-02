@@ -4,20 +4,25 @@ import PageHero from "@/components/PageHero";
 import ImageGallery from "@/components/ImageGallery";
 import PastPerformances from "@/components/PastPerformances";
 import PerformanceList from "@/components/PerformanceList";
-import { performances } from "@/data/performances";
+import { getPerformances } from "@/data/performances";
 
 export const metadata: Metadata = {
   title: "성악가 | 소프라노 지정윤",
 };
 
+// 한 시간마다 다시 생성해 지난 공연 표시가 날짜에 맞게 갱신되도록 한다.
+export const revalidate = 3600;
+
 // 올해와 작년 공연만 펼쳐서 보여주고, 그 이전은 접어서 표시합니다.
-const PAST_YEAR_CUTOFF = new Date().getFullYear() - 2;
-const recentPerformances = performances.filter(
-  (item) => Number(item.date.slice(0, 4)) > PAST_YEAR_CUTOFF,
-);
-const pastPerformances = performances.filter(
-  (item) => Number(item.date.slice(0, 4)) <= PAST_YEAR_CUTOFF,
-);
+function splitPerformances() {
+  const cutoffYear = new Date().getFullYear() - 2;
+  const all = getPerformances();
+
+  return {
+    recent: all.filter((item) => Number(item.date.slice(0, 4)) > cutoffYear),
+    past: all.filter((item) => Number(item.date.slice(0, 4)) <= cutoffYear),
+  };
+}
 
 const CONCERT_POSTERS = [
   {
@@ -44,6 +49,8 @@ const GALLERY = [
 ];
 
 export default function VocalistPage() {
+  const { recent, past } = splitPerformances();
+
   return (
     <div>
       <PageHero
@@ -75,9 +82,9 @@ export default function VocalistPage() {
           <ImageGallery images={GALLERY} alt="소프라노 지정윤 공연 사진" />
         </div>
 
-        <section className="mt-14 overflow-hidden rounded-2xl border border-accent/40 bg-background-elevated">
-          <p className="border-b border-line bg-accent-soft px-6 py-3 text-center text-xs tracking-[0.3em] text-accent">
-            UPCOMING
+        <section className="mt-14 overflow-hidden rounded-2xl border border-line bg-background-elevated">
+          <p className="border-b border-line px-6 py-3 text-center text-xs tracking-[0.3em] text-muted/80">
+            CONCERT RECORD
           </p>
 
           <div className="p-6 sm:p-7">
@@ -88,12 +95,12 @@ export default function VocalistPage() {
               세종거리예술가 콘서트
             </h2>
             <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
-              10월 9일(금)·10일(토) 이틀 모두 <b className="text-foreground">
-                13:00~13:40
-              </b>
-              , <b className="text-foreground">세종호수공원 수상무대섬</b>에서
-              지정윤이 팝페라 무대로 관객을 맞이합니다. 세종특별자치시와
-              세종시문화관광재단이 함께하는 세종한글축제 연계 공연입니다.
+              2026년 10월 9일(금)·10일(토) 이틀 동안{" "}
+              <b className="text-foreground">세종호수공원 수상무대섬</b>에서
+              열린 공연으로, 지정윤이 이틀 모두{" "}
+              <b className="text-foreground">13:00~13:40</b> 팝페라 무대에
+              올랐습니다. 세종특별자치시와 세종시문화관광재단이 함께한
+              세종한글축제 연계 공연으로 두 무대 모두 잘 마쳤습니다.
             </p>
 
             <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
@@ -126,9 +133,9 @@ export default function VocalistPage() {
           <h2 className="mt-3 font-display text-2xl sm:text-3xl">공연 이력</h2>
         </div>
 
-        <PerformanceList items={recentPerformances} />
+        <PerformanceList items={recent} />
 
-        <PastPerformances items={pastPerformances} />
+        <PastPerformances items={past} />
 
         <p className="mt-12 rounded-xl border border-dashed border-line p-5 text-xs leading-6 text-muted/80">
           ※ 네이버 인물정보(본인/대리인 관리) 및 본인 제출 자료를 바탕으로

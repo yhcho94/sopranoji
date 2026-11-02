@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# lockfile (이 저장소는 커밋하지 않습니다)
+package-lock.json
